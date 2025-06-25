@@ -115,6 +115,12 @@
     form button:hover {
       background-color: #0d47a1;
     }
+    .form-message {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
     @media (max-width: 600px) {
       header, nav, .container, footer {
         padding: 10px;
@@ -183,7 +189,9 @@
 
     <section id="contact" class="section">
       <h2>Contact Us</h2>
-      <form action="#" method="POST">
+      <form action="https://formspree.io/f/xayrnnpv" method="POST">
+        <input type="hidden" name="_captcha" value="true">
+
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
 
@@ -193,9 +201,10 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" required></textarea>
 
-        <div class="g-recaptcha" data-sitekey="6LfcjW0rAAAAANnzxgImFynapjbHcubdXE_Rh-gE"></div>
+        <div class="g-recaptcha" data-sitekey="your-site-key"></div>
 
         <button type="submit">Send Message</button>
+        <div id="form-message" class="form-message">Thank you! Your message has been sent.</div>
       </form>
     </section>
   </div>
