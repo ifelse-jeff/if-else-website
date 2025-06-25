@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>If Else Data Solutions</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    header img {
+      max-height: 150px;
+      vertical-align: middle;
+    }
+    header p {
+      color: #555;
+    }
+    nav {
+      background: #1565c0;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    nav a:hover {
+      opacity: 0.8;
+    }
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+      margin-top: 30px;
+    }
+    h1, h2 {
+      color: #1e88e5;
+    }
+    .section {
+      margin-top: 20px;
+      display: none;
+    }
+    .section.active {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    .clients {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .clients h3 {
+      color: #1e88e5;
+      margin-bottom: 10px;
+    }
+    .clients ul {
+      list-style: none;
+      padding: 0;
+    }
+    .clients li {
+      display: inline-block;
+      margin: 10px 20px;
+      font-weight: 500;
+      color: #444;
+    }
+    footer {
+      background: #eee;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 30px;
+    }
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    form button {
+      margin-top: 20px;
+      background-color: #1565c0;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #0d47a1;
+    }
+    @media (max-width: 600px) {
+      header, nav, .container, footer {
+        padding: 10px;
+      }
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="if_else_data_solutions_logo.png" alt="If Else Data Solutions Logo" />
+    <p>Empowering Business Through Data, Strategy, and Seamless Technology</p>
+  </header>
+
+  <nav>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('services')">Services</a>
+    <a onclick="showSection('contact')">Contact</a>
+  </nav>
+
+  <div class="container">
+    <section id="about" class="section active">
+      <h2>About Us</h2>
+      <p>If Else Data Solutions is a Michigan-based IT consultancy focused on helping organizations modernize infrastructure, optimize operations, and harness the power of data. With more than two decades of experience, we bring a practical, business-first mindset to every engagement.</p>
+
+      <h3>Key Projects</h3>
+      <p><strong>POS System Upgrade:</strong> Led an enhanced point-of-sale rollout, reducing transaction time by 50% and improving data accuracy and reporting.</p>
+      <p><strong>Sales & Billing Migration:</strong> Directed a cross-functional migration with end-to-end ETL, seamless cutover, and enhanced reporting tools.</p>
+
+      <div class="clients">
+        <h3>Organizations We've Helped</h3>
+        <ul>
+          <li>D&B Grocers Wholesale</li>
+          <li>Crain Communications</li>
+          <li>Shammami Kasgorgis CPA PC</li>
+          <li>313 Alpha</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Fractional CIO / IT Leadership</li>
+        <li>System Migrations & Platform Upgrades</li>
+        <li>Data Integration & ETL Development</li>
+        <li>Custom Business Intelligence & Reporting Automation</li>
+        <li>POS & Financial Systems Implementation</li>
+        <li>Remote Desktop & Infrastructure Support</li>
+        <li>Vendor Selection & Software Evaluation</li>
+        <li>Post-Implementation Optimization & Support</li>
+      </ul>
+
+      <h3>Technologies & Tools</h3>
+      <p><strong>Platforms:</strong> VMWare, Proxmox, Windows Server, Linux, CITRIX</p>
+      <p><strong>Languages & Tools:</strong> SQL, Power Query, SSRS, SSIS, PowerShell, HTML/CSS/JavaScript, Visual Basic</p>
+      <p><strong>Expertise:</strong> Active Directory, RDS, ETL pipelines, custom dashboards, data transformation, IT planning</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Us</h2>
+      <form action="#" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <div class="g-recaptcha" data-sitekey="6LfcjW0rAAAAANnzxgImFynapjbHcubdXE_Rh-gE"></div>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 If Else Data Solutions. All rights reserved.
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
