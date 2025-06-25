@@ -12,26 +12,40 @@
       background-color: #f5f7fa;
       color: #333;
     }
+
     header {
       background: white;
       padding: 20px;
       text-align: center;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
     header img {
       max-height: 150px;
       vertical-align: middle;
     }
+
     header p {
       color: #555;
     }
+
     nav {
       background: #1565c0;
-      padding: 12px;
-      text-align: center;
+      height: 64px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    nav a {
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links a {
       color: white;
       margin: 0 20px;
       text-decoration: none;
@@ -40,9 +54,29 @@
       cursor: pointer;
       transition: opacity 0.2s ease;
     }
-    nav a:hover {
+
+    .nav-links a:hover {
       opacity: 0.8;
     }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
     .container {
       padding: 30px;
       max-width: 1000px;
@@ -52,35 +86,43 @@
       border-radius: 6px;
       margin-top: 30px;
     }
+
     h1, h2 {
       color: #1e88e5;
     }
+
     .section {
       margin-top: 20px;
       display: none;
     }
+
     .section.active {
       display: block;
       animation: fadeIn 0.2s ease-in-out;
     }
+
     .clients {
       margin-top: 40px;
       text-align: center;
     }
+
     .clients h3 {
       color: #1e88e5;
       margin-bottom: 10px;
     }
+
     .clients ul {
       list-style: none;
       padding: 0;
     }
+
     .clients li {
       display: inline-block;
       margin: 10px 20px;
       font-weight: 500;
       color: #444;
     }
+
     footer {
       background: #eee;
       padding: 20px;
@@ -89,11 +131,13 @@
       color: #555;
       margin-top: 30px;
     }
+
     form label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
+
     form input, form textarea {
       width: 100%;
       padding: 10px;
@@ -102,6 +146,7 @@
       border-radius: 4px;
       font-size: 1em;
     }
+
     form button {
       margin-top: 20px;
       background-color: #1565c0;
@@ -112,24 +157,45 @@
       font-size: 1em;
       cursor: pointer;
     }
+
     form button:hover {
       background-color: #0d47a1;
     }
+
     .form-message {
       margin-top: 15px;
       color: green;
       font-weight: bold;
       display: none;
     }
+
     @media (max-width: 600px) {
-      header, nav, .container, footer {
-        padding: 10px;
+      .nav-links {
+        flex-direction: column;
+        display: none;
+        background-color: #1565c0;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
       }
-      nav a {
-        display: block;
-        margin: 8px 0;
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 16px;
+        text-align: center;
+        border-top: 1px solid #0d47a1;
+      }
+
+      .hamburger {
+        display: flex;
       }
     }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -143,9 +209,16 @@
   </header>
 
   <nav>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('services')">Services</a>
-    <a onclick="showSection('contact')">Contact</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('services')">Services</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </div>
   </nav>
 
   <div class="container">
@@ -219,6 +292,11 @@
         section.classList.remove('active');
       });
       document.getElementById(id).classList.add('active');
+
+      const navLinks = document.getElementById('nav-links');
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
     }
 
     function showThankYou(event) {
@@ -243,6 +321,10 @@
       }).catch(error => {
         alert('There was an error submitting the form.');
       });
+    }
+
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('active');
     }
   </script>
 </body>
