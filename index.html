@@ -168,6 +168,27 @@
       font-weight: bold;
       display: none;
     }
+	.client-logos {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  align-items: center;
+	  gap: 24px;
+	  margin-top: 20px;
+	}
+
+	.client-logos img {
+	  max-height: 70px;
+	  max-width: 150px;
+	  object-fit: contain;
+	  filter: grayscale(100%);
+	  transition: filter 0.3s ease, transform 0.2s ease;
+	}
+
+	.client-logos img:hover {
+	  filter: grayscale(0%);
+	  transform: scale(1.05);
+	}
 
     @media (max-width: 600px) {
       .nav-links {
@@ -232,12 +253,13 @@
 
       <div class="clients">
         <h3>Organizations We've Helped</h3>
-        <ul>
-          <li>D&B Grocers Wholesale</li>
-          <li>Crain Communications</li>
-          <li>Shammami Kasgorgis CPA PC</li>
-          <li>313 Alpha</li>
-        </ul>
+       <div class="client-logos">
+		  <img src="https://www.dandbgrocers.com/wp-content/themes/dandbgrocers/images/logo.png" alt="D&B Grocers Wholesale" title="D&B Grocers Wholesale" />
+		  <img src="https://s44778.pcdn.co/wp-content/uploads/2024/10/Crain-Tagline.png" alt="Crain Communications" title="Crain Communications" />
+		  <img src="logos/skcpa.png" alt="Shammami Kasgorgis CPA PC" title="Shammami Kasgorgis CPA PC" />
+		  <img src="http://www.313a.com/img/313a2019bw.png" alt="313 Alpha" title="313 Alpha" />
+		</div>
+
       </div>
     </section>
 
