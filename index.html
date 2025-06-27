@@ -317,7 +317,7 @@
   <div class="container">
 
     <!-- Services Section -->
-    <section id="services" class="page-section active">
+    <section id="services" class="page-section">
       <div class="section-box">
         <h2>We Solve Real Problems With Practical Tech</h2>
         <div>
@@ -478,6 +478,14 @@
     }
 
     window.onload = () => showSection('services');
+  </script>
+  <script>
+	  window.addEventListener('DOMContentLoaded', () => {
+		const hash = window.location.hash.replace('#', '');
+		if (hash) {
+		  showSection(hash);
+		}
+	  });
   </script>
 
 </body>
