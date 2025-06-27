@@ -169,25 +169,31 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    .logos {
-      text-align: center;
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+.logos {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
-    .logos img {
-      max-height: 70px;
-	  max-width: 200px;
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
-    }
+.logos img {
+  max-height: 70px;
+  max-width: 200px;
+  height: auto;
+  width: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  object-fit: contain;
+}
+  
+.logos img:hover {
+  filter: none;
+  transform: scale(1.05);
+}
 
-    .logos img:hover {
-      filter: none;
-    }
 
     footer {
       background: #eee;
