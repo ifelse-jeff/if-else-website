@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>If Else Data Solutions</title>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -13,20 +14,41 @@
       color: #333;
     }
 
+    .top-buttons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 20px 0;
+      background: #fff;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .top-buttons a {
+      background: #1565c0;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .top-buttons a:hover {
+      background: #0d47a1;
+    }
+
     header {
       background: white;
-      padding: 20px;
+      padding: 5px 15px 10px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     header img {
-      max-height: 150px;
+      max-height: 100px;
       vertical-align: middle;
-    }
-
-    header p {
-      color: #555;
     }
 
     nav {
@@ -37,7 +59,6 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links {
@@ -74,53 +95,97 @@
       width: 25px;
       background-color: white;
       margin: 4px 0;
-      transition: 0.3s;
+    }
+
+    .hero {
+      background: #e3f2fd;
+      text-align: center;
+      padding: 20px 20px 30px;
+    }
+
+    .hero h1 {
+      font-size: 1.9em;
+      color: #1565c0;
+      margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons a {
+      background-color: #1565c0;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero-buttons a:hover {
+      background-color: #0d47a1;
     }
 
     .container {
       padding: 30px;
       max-width: 1000px;
       margin: auto;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      border-radius: 6px;
-      margin-top: 30px;
     }
 
-    h1, h2 {
-      color: #1e88e5;
-    }
-
-    .section {
-      margin-top: 20px;
+    .page-section {
       display: none;
     }
 
-    .section.active {
+    .page-section.active {
       display: block;
-      animation: fadeIn 0.2s ease-in-out;
+      animation: fadeIn 0.3s ease-in-out;
     }
 
-    .clients {
-      margin-top: 40px;
-      text-align: center;
+    .section-box {
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    .clients h3 {
-      color: #1e88e5;
+    .section-box h2, .section-box h3 {
+      margin-top: 0;
+      color: #1565c0;
+    }
+
+    .section-box p {
       margin-bottom: 10px;
     }
 
-    .clients ul {
-      list-style: none;
-      padding: 0;
+    .insights article {
+      margin-bottom: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    .clients li {
-      display: inline-block;
-      margin: 10px 20px;
-      font-weight: 500;
-      color: #444;
+    .logos {
+      text-align: center;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .logos img {
+      height: 50px;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .logos img:hover {
+      filter: none;
     }
 
     footer {
@@ -138,7 +203,7 @@
       font-weight: bold;
     }
 
-    form input, form textarea {
+    form input, form textarea, form select {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
@@ -168,29 +233,8 @@
       font-weight: bold;
       display: none;
     }
-	.client-logos {
-	  display: flex;
-	  flex-wrap: wrap;
-	  justify-content: center;
-	  align-items: center;
-	  gap: 24px;
-	  margin-top: 20px;
-	}
 
-	.client-logos img {
-	  max-height: 70px;
-	  max-width: 200px;
-	  object-fit: contain;
-	  filter: grayscale(100%);
-	  transition: filter 0.3s ease, transform 0.2s ease;
-	}
-
-	.client-logos img:hover {
-	  filter: grayscale(0%);
-	  transform: scale(1.05);
-	}
-
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .nav-links {
         flex-direction: column;
         display: none;
@@ -215,6 +259,10 @@
       .hamburger {
         display: flex;
       }
+
+      .top-buttons {
+        justify-content: center;
+      }
     }
 
     @keyframes fadeIn {
@@ -224,11 +272,17 @@
   </style>
 </head>
 <body>
+
+  <div class="top-buttons">
+    <a href="#" onclick="showSection('consultation')"><i class="fa fa-calendar-alt"></i> Schedule</a>
+    <a href="tel:3135556667"><i class="fa fa-phone"></i> Call</a>
+  </div>
+
   <header>
-    <img src="if_else_data_solutions_logo.png" alt="If Else Data Solutions Logo" onclick="showSection('about')" />
-    <p>Empowering Business Through Data, Strategy, and Seamless Technology</p>
+    <img src="if_else_data_solutions_logo.png" alt="If Else Data Solutions Logo" />
   </header>
 
+  <!-- Navigation -->
   <nav>
     <div class="hamburger" onclick="toggleMenu()">
       <div class="bar"></div>
@@ -236,73 +290,132 @@
       <div class="bar"></div>
     </div>
     <div class="nav-links" id="nav-links">
-      <a onclick="showSection('about')">About</a>
-      <a onclick="showSection('services')">Services</a>
-      <a onclick="showSection('contact')">Contact</a>
+      <a href="#" onclick="showSection('services')">Services</a>
+      <a href="#" onclick="showSection('consultation')">Schedule</a>
+      <a href="#" onclick="showSection('about')">About</a>
+      <a href="#" onclick="showSection('insights')">Insights</a>
+      <a href="#" onclick="showSection('contact')">Contact</a>
     </div>
   </nav>
 
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Empowering Small Businesses with Enterprise-Grade Solutions</h1>
+    <div class="hero-buttons">
+      <a href="#" onclick="showSection('consultation')">Schedule a Consultation</a>
+      <a href="#" onclick="showSection('services')">View Our Services</a>
+    </div>
+  </div>
+
   <div class="container">
-    <section id="about" class="section active">
-      <h2>About Us</h2>
-      <p>If Else Data Solutions is a Michigan-based IT consultancy focused on helping organizations modernize infrastructure, optimize operations, and harness the power of data. With more than two decades of experience, we bring a practical, business-first mindset to every engagement.</p>
 
-      <h3>Key Projects</h3>
-      <p><strong>POS System Upgrade:</strong> Led an enhanced point-of-sale rollout, reducing transaction time by 50% and improving data accuracy and reporting.</p>
-      <p><strong>Sales & Billing Migration:</strong> Directed a cross-functional migration with end-to-end ETL, seamless cutover, and enhanced reporting tools.</p>
-
-      <div class="clients">
-        <h3>Organizations We've Helped</h3>
-       <div class="client-logos">
-		  <img src="313a2019bw.png" alt="313 Alpha" title="313 Alpha" />
-		  <img src="https://s44778.pcdn.co/wp-content/uploads/2024/10/Crain-Tagline.png" alt="Crain Communications" title="Crain Communications" />
-		  <img src="skcpapc.png" alt="Shammami & Kasgorgis CPA PC" title="Shammami & Kasgorgis CPA PC" />
-		  <img src="adage.png" alt="AdAge" title="AdAge" />
-		  <img src="https://www.dandbgrocers.com/wp-content/themes/dandbgrocers/images/logo.png" alt="D&B Grocers Wholesale" title="D&B Grocers Wholesale" />
-		  <img src="automotivenews.png" alt="Automotive News" title="Automotive News" />
-		</div>
-
+    <!-- Services Section -->
+    <section id="services" class="page-section active">
+      <div class="section-box">
+        <h2>We Solve Real Problems With Practical Tech</h2>
+        <div>
+          <h3>Disconnected Systems?</h3>
+          <p>We integrate legacy platforms, cloud tools, and siloed data into a single source of truth.</p>
+        </div>
+        <div>
+          <h3>Slow Reporting or Manual Work?</h3>
+          <p>Our automation solutions reduce repetitive tasks and uncover timely insights.</p>
+        </div>
+        <div>
+          <h3>Outdated Infrastructure?</h3>
+          <p>We modernize your stack — cloud migrations, hybrid environments, or remote workforce support.</p>
+        </div>
       </div>
     </section>
 
-    <section id="services" class="section">
-      <h2>Our Services</h2>
-      <ul>
-        <li>Fractional CIO / IT Leadership</li>
-        <li>System Migrations & Platform Upgrades</li>
-        <li>Data Integration & ETL Development</li>
-        <li>Custom Business Intelligence & Reporting Automation</li>
-        <li>POS & Financial Systems Implementation</li>
-        <li>Remote Desktop & Infrastructure Support</li>
-        <li>Vendor Selection & Software Evaluation</li>
-        <li>Post-Implementation Optimization & Support</li>
-      </ul>
+    <!-- Consultation -->
+    <section id="consultation" class="page-section">
+      <div class="section-box">
+        <h2>Schedule a Consultation</h2>
+        <form action="https://formspree.io/f/xkgbpqgk" method="POST" onsubmit="showThankYou(event)">
+          <input type="hidden" name="_replyto" value="jeff@ifelsedata.com">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
 
-      <h3>Technologies & Tools</h3>
-      <p><strong>Platforms:</strong> VMWare, Proxmox, Windows Server, Linux, CITRIX</p>
-      <p><strong>Languages & Tools:</strong> SQL, Power Query, SSRS, SSIS, PowerShell, HTML/CSS/JavaScript, Visual Basic</p>
-      <p><strong>Expertise:</strong> Active Directory, RDS, ETL pipelines, custom dashboards, data transformation, IT planning</p>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="topic">Category</label>
+          <select name="topic" id="topic" required>
+            <option value="">Select one...</option>
+            <option value="hardware">Hardware</option>
+            <option value="software">Software</option>
+            <option value="reporting">Reporting/Analytics</option>
+            <option value="security">Security</option>
+            <option value="networking">Networking</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <div class="g-recaptcha" data-sitekey="6LfcjW0rAAAAANnzxgImFynapjbHcubdXE_Rh-gE"></div>
+
+          <button type="submit">Submit</button>
+          <div id="form-message" class="form-message">Thank you! Your request has been submitted.</div>
+        </form>
+      </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact Us</h2>
-      <form action="https://formspree.io/f/xkgbpqgk" method="POST" onsubmit="showThankYou(event)">
-        <input type="hidden" name="_captcha" value="true">
+    <!-- About -->
+    <section id="about" class="page-section">
+      <div class="section-box">
+        <h2>About Us</h2>
+        <p>If Else Data Solutions is a Michigan-based IT consultancy...</p>
+        <h3>How We Work</h3>
+        <ul>
+          <li><strong>Strategic First:</strong> We focus on your business goals, not just tech tools.</li>
+          <li><strong>Transparent Execution:</strong> We keep you informed and engaged throughout.</li>
+          <li><strong>Sustainable Delivery:</strong> We ensure long-term results and knowledge transfer.</li>
+        </ul>
+        <h3>Core Values</h3>
+        <ul>
+          <li>Clarity Over Complexity</li>
+          <li>Results Over Hype</li>
+          <li>Respect for Client Time</li>
+          <li>Honesty in Every Engagement</li>
+        </ul>
+        <div class="logos">
+			<img src="313a2019bw.png" alt="313 Alpha" title="313 Alpha" />
+			<img src="https://s44778.pcdn.co/wp-content/uploads/2024/10/Crain-Tagline.png" alt="Crain Communications" title="Crain Communications" />
+			<img src="skcpapc.png" alt="Shammami & Kasgorgis CPA PC" title="Shammami & Kasgorgis CPA PC" />
+			<img src="adage.png" alt="AdAge" title="AdAge" />
+			<img src="https://www.dandbgrocers.com/wp-content/themes/dandbgrocers/images/logo.png" alt="D&B Grocers Wholesale" title="D&B Grocers Wholesale" />
+			<img src="automotivenews.png" alt="Automotive News" title="Automotive News" />
+        </div>
+      </div>
+    </section>
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+    <!-- Insights -->
+    <section id="insights" class="page-section insights">
+      <div class="section-box">
+        <h2>Insights</h2>
+        <article>
+          <h3>Why Fractional CIOs Are Critical for Growing Businesses</h3>
+          <p>See how small and mid-size companies are unlocking strategic IT leadership — without the overhead.</p>
+        </article>
+        <article>
+          <h3>What Most Mid-Market Firms Get Wrong About Reporting</h3>
+          <p>Stop relying on outdated spreadsheets and uncover the real insights in your data.</p>
+        </article>
+        <article>
+          <h3>Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls</h3>
+          <p>Tips from the trenches for a smooth, secure cloud migration.</p>
+        </article>
+      </div>
+    </section>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <div class="g-recaptcha" data-sitekey="6LfcjW0rAAAAANnzxgImFynapjbHcubdXE_Rh-gE"></div>
-
-        <button type="submit">Send Message</button>
-        <div id="form-message" class="form-message">Thank you! Your message has been sent.</div>
-      </form>
+    <!-- Contact -->
+    <section id="contact" class="page-section">
+      <div class="section-box">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:jeff@ifelsedata.com">jeff@ifelsedata.com</a></p>
+        <p>Phone: <a href="tel:3135556667">313.555.6667</a></p>
+      </div>
     </section>
   </div>
 
@@ -311,8 +424,12 @@
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('active');
+    }
+
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(section => {
+      document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
       });
       document.getElementById(id).classList.add('active');
@@ -321,20 +438,19 @@
       if (navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
       }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function showThankYou(event) {
       event.preventDefault();
-
       const form = event.target;
       const formData = new FormData(form);
 
       fetch(form.action, {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
           form.reset();
@@ -342,14 +458,13 @@
         } else {
           alert('There was an issue submitting the form.');
         }
-      }).catch(error => {
+      }).catch(() => {
         alert('There was an error submitting the form.');
       });
     }
 
-    function toggleMenu() {
-      document.getElementById('nav-links').classList.toggle('active');
-    }
+    window.onload = () => showSection('services');
   </script>
+
 </body>
 </html>
