@@ -301,11 +301,17 @@
         justify-content: center;
       }
     }
+    @media (max-width: 600px) {
+      #about .section-box ul li { margin-bottom: 6px; }
+      #about .section-box p { margin-bottom: 10px; }  
+    }
 
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+
   </style>
 </head>
 <body>
@@ -408,13 +414,28 @@
     <section id="about" class="page-section">
       <div class="section-box">
         <h2>About Us</h2>
-        <p>If Else Data Solutions is a Michigan-based IT consultancy...</p>
+
+        <p><strong>If Else Data Solutions untangles your IT headaches so you can focus on running your business.</strong></p>
+        <p>Technology shouldn’t feel mysterious or risky. We listen, translate the jargon, and deliver right‑sized solutions that work now and hold up later—without overspending or overcomplicating.</p>
+
+        <h3>Common Problems We Solve</h3>
+        <ul>
+          <li><strong>Security & downtime:</strong> Internet security worries, phishing, DDoS noise, and those “why is everything slow?” moments.</li>
+          <li><strong>Cloud without chaos:</strong> You’ve heard you “should be on the cloud,” but need to know what to move, when, and how—without breaking things.</li>
+          <li><strong>Disconnected systems:</strong> Tools that don’t talk to each other, duplicate data, and manual workarounds that waste time.</li>
+          <li><strong>Reporting that drags:</strong> Hours building spreadsheets that still don’t answer the real questions—you want clear, timely insights.</li>
+          <li><strong>Vendor overload:</strong> Lots of buzzwords, little accountability. You need a trusted guide and a real plan.</li>
+        </ul>
+
         <h3>How We Work</h3>
         <ul>
-          <li><strong>Strategic First:</strong> We focus on your business goals, not just tech tools.</li>
-          <li><strong>Transparent Execution:</strong> We keep you informed and engaged throughout.</li>
-          <li><strong>Sustainable Delivery:</strong> We ensure long-term results and knowledge transfer.</li>
+          <li><strong>We align with your priorities:</strong> Advice only, extra hands, or end‑to‑end delivery—we flex to your needs. We build right‑sized solutions that balance immediate fixes with long‑term stability and cost control.</li>
+          <li><strong>You’ll always know where things stand:</strong> Progress, risks, and timelines are shared openly so you’re never left guessing.</li>
+          <li><strong>We leave your team stronger:</strong> Clean handoffs, documentation, and improvements that last.</li>
         </ul>
+
+        <p><em>In short: we’re master translators and solution junkies—reliable, practical, and on your side.</em></p>
+
         <h3>Core Values</h3>
         <ul>
           <li>Clarity Over Complexity</li>
@@ -455,7 +476,7 @@
         <article>
           <h3>Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls</h3>
           <p>Tips from the trenches for a smooth, secure cloud migration.</p>
-          <a class="read-more" href="insights/fractional-cio-growth.html">Read More</a>
+          <a class="read-more" href="insights/cloud-migration-pitfalls.html">Read More</a>
         </article>
         <article>
           <h3>Top 5 Ways to Improve Data Quality in Your Organization</h3>
