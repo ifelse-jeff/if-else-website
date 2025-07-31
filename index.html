@@ -129,6 +129,25 @@
       background-color: #0d47a1;
     }
 
+    /* Hero button "ghost" style when Services is active */
+    .hero-buttons a.ghost {
+      background-color: #ffffff;
+      color: #1565c0;
+      border: 2px solid #1565c0;
+    }
+
+    /* Optional: cursor style when we're already on Services */
+    .hero-buttons a.ghost {
+      cursor: default;
+    }
+
+    /* If you want the ghost button to be non-clickable on Services */
+    .hero-buttons a.ghost[aria-current="page"] {
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+
     .container {
       padding: 30px;
       max-width: 1000px;
@@ -415,9 +434,14 @@
 <body>
 
   <div class="top-buttons">
-    <a href="#" onclick="showSection('consultation')"><i class="fa fa-calendar-alt"></i> Schedule</a>
-    <a href="tel:3135556667"><i class="fa fa-phone"></i> Call</a>
+    <a href="mailto:jeff@ifelsedata.com?subject=Consultation%20Request&body=Hi%20If%20Else%20Data%20Solutions%2C%0A%0AHere%E2%80%99s%20what%E2%80%99s%20top%20of%20mind%3A%0A" aria-label="Email us">
+      <i class="fa fa-envelope"></i> Email
+    </a>
+    <a href="tel:3135556667" aria-label="Call us">
+      <i class="fa fa-phone"></i> Call
+    </a>
   </div>
+
 
   <header>
     <img src="images/if_else_data_solutions_logo.png" alt="If Else Data Solutions Logo" onclick="showSection('services')"/>
@@ -440,13 +464,11 @@
   </nav>
 
   <!-- Hero -->
-  <div class="hero">
-    <h1>Empowering Small Businesses with Enterprise-Grade Solutions</h1>
-    <div class="hero-buttons">
-      <a href="#" onclick="showSection('consultation')">Schedule a Consultation</a>
-      <a href="#" onclick="showSection('services')">View Our Services</a>
-    </div>
+  <div class="hero-buttons">
+    <a id="btnHeroEmail" href="mailto:jeff@ifelsedata.com?subject=Consultation%20Request&body=Hi%20If%20Else%20Data%20Solutions%2C%0A%0AHere%27s%20what%27s%20top%20of%20mind%3A%0A">Email Us</a>
+    <a id="btnHeroServices" href="#" onclick="showSection('services')">View Our Services</a>
   </div>
+
 
   <div class="container">
 
@@ -702,8 +724,26 @@
       navLinks.classList.remove('active');
     }
 
+    // NEW: update hero buttons based on the active section
+    updateHeroButtons(id);
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+  
+  function updateHeroButtons(activeId) {
+    const btnServices = document.getElementById('btnHeroServices');
+    if (!btnServices) return;
+
+    if (activeId === 'services') {
+      // outline/inverse style and non-clickable cue
+      btnServices.classList.add('ghost');
+      btnServices.setAttribute('aria-current', 'page');
+    } else {
+      btnServices.classList.remove('ghost');
+      btnServices.removeAttribute('aria-current');
+    }
+  }
+
 
   function showThankYou(event) {
     event.preventDefault();
