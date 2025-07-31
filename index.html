@@ -270,7 +270,14 @@
       font-weight: bold;
       display: none;
     }
+    .service-example {
+      padding: 12px 0;
+    }
 
+    .divider {
+      border-bottom: 1px solid #ddd;
+      margin: 8px 0;
+    }
     @media (max-width: 768px) {
       .nav-links {
         flex-direction: column;
@@ -303,7 +310,16 @@
     }
     @media (max-width: 600px) {
       #about .section-box ul li { margin-bottom: 6px; }
-      #about .section-box p { margin-bottom: 10px; }  
+      #about .section-box p { margin-bottom: 10px; }
+   
+      .service-example {
+        padding: 10px 0;
+        font-size: 0.95em;
+    }
+  
+    .divider {
+    margin: 6px 0;
+  }  
     }
 
     @keyframes fadeIn {
@@ -363,39 +379,61 @@
 
   <div class="container">
 
-    <!-- Services Section -->
-    <section id="services" class="page-section">
-      <div class="section-box">
-        <h2>Our Services</h2>
-        <p>We solve real problems with practical, right-sized technology solutions. Each area below explains what we do and gives examples of how we have delivered results in the past.</p>
+  <!-- Services Section -->
+  <section id="services" class="page-section">
+    <div class="section-box">
+      <h2>Our Services</h2>
+      <p>We solve real problems with practical, right-sized technology solutions. Each area below explains what we do and shares examples of how we have delivered results in the past.</p>
 
-        <h3>Disconnected Systems?</h3>
-        <p>We integrate legacy platforms, cloud tools, and siloed data into a single source of truth. <strong>Recent results:</strong></p>
-        <ul>
-          <li>Connected point-of-sale, billing, and financial systems for a wholesale food distributor to simplify reporting and reduce errors.</li>
-          <li>Built automated ETL pipelines and dashboards for a publishing company to unify sales and finance data.</li>
-          <li>Eliminated manual entry by linking disconnected systems across finance, distribution, and media industries.</li>
-        </ul>
+      <h3>Disconnected Systems?</h3>
+      <p>We integrate legacy platforms, cloud tools, and siloed data into a single source of truth. <strong>Recent results:</strong></p>
 
-        <h3>Slow Reporting or Manual Work?</h3>
-        <p>We automate reporting and streamline processes so your team spends less time in spreadsheets and more time making decisions. <strong>Here are some wins we've delivered:</strong></p>
-        <ul>
-          <li>Designed revenue, P&L, and inventory dashboards for leadership in publishing and food distribution.</li>
-          <li>Cut reporting preparation time from hours to minutes with automation and data transformation.</li>
-          <li>Delivered single-source, accurate views of performance across departments in professional services and media.</li>
-        </ul>
-
-        <h3>Outdated Infrastructure?</h3>
-        <p>We modernize your stack with cloud migrations, hybrid environments, and secure remote workforce support. <strong>How we've helped others:</strong></p>
-        <ul>
-          <li>Upgraded a point-of-sale system for a wholesale distributor, reducing transaction time by 50% and improving customer experience.</li>
-          <li>Migrated financial and billing systems for professional services and publishing firms with minimal downtime.</li>
-          <li>Maintained security and compliance while upgrading Windows Server, RDS, and Citrix environments for multiple industries.</li>
-        </ul>
-
-        <p><em>From quick advice to full project delivery, we untangle IT challenges and leave teams stronger across industries like publishing, wholesale distribution, and professional services.</em></p>
+      <div class="service-example">
+        We connected point-of-sale, billing, and financial systems for a wholesale food distributor, simplifying reporting and reducing errors.
       </div>
-    </section>
+      <div class="divider"></div>
+      <div class="service-example">
+        We built automated ETL pipelines and dashboards for a publishing company to unify sales and finance data.
+      </div>
+      <div class="divider"></div>
+      <div class="service-example">
+        We eliminated manual entry by linking disconnected systems across finance, distribution, and media industries.
+      </div>
+
+      <h3>Slow Reporting or Manual Work?</h3>
+      <p>We automate reporting and streamline processes so your team spends less time in spreadsheets and more time making decisions. <strong>Here are some wins we've delivered:</strong></p>
+
+      <div class="service-example">
+        We designed revenue, P&L, and inventory dashboards for leadership in publishing and food distribution.
+      </div>
+      <div class="divider"></div>
+      <div class="service-example">
+        We cut reporting preparation time from hours to minutes with automation and data transformation.
+      </div>
+      <div class="divider"></div>
+      <div class="service-example">
+        We delivered single-source, accurate views of performance across departments in professional services and media.
+      </div>
+
+      <h3>Outdated Infrastructure?</h3>
+      <p>We modernize your stack with cloud migrations, hybrid environments, and secure remote workforce support. <strong>How we've helped others:</strong></p>
+
+      <div class="service-example">
+        We upgraded a point-of-sale system for a wholesale distributor, reducing transaction time by 50% and improving customer experience.
+      </div>
+      <div class="divider"></div>
+      <div class="service-example">
+        We migrated financial and billing systems for professional services and publishing firms with minimal downtime.
+      </div>
+      <div class="divider"></div>
+      <div class="service-example">
+        We maintained security and compliance while upgrading Windows Server, RDS, and Citrix environments for multiple industries.
+      </div>
+
+      <p><em>From quick advice to full project delivery, we untangle IT challenges and leave teams stronger across industries like publishing, wholesale distribution, and professional services.</em></p>
+    </div>
+  </section>
+
 
     <!-- Consultation -->
     <section id="consultation" class="page-section">
