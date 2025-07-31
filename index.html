@@ -274,10 +274,6 @@
       padding: 12px 0;
     }
 
-    .divider {
-      border-bottom: 1px solid #ddd;
-      margin: 8px 0;
-    }
     @media (max-width: 768px) {
       .nav-links {
         flex-direction: column;
@@ -315,11 +311,7 @@
       .service-example {
         padding: 10px 0;
         font-size: 0.95em;
-    }
-  
-    .divider {
-    margin: 6px 0;
-  }  
+      }
     }
 
     @keyframes fadeIn {
@@ -336,6 +328,85 @@
     }
     #contact .section-box button {
       margin-top: 16px;
+    }
+    
+    /* Services: modern cards and mobile-friendly grid */
+    .service-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    /* Two columns on larger screens */
+    @media (min-width: 900px) {
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Card styling */
+    .service-group {
+      background: #ffffff;
+      border: 1px solid #e6eef8;
+      border-radius: 8px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+      animation: serviceFadeUp 280ms ease both;
+    }
+
+    .service-group:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      border-color: #d8e5f6;
+    }
+
+    .service-group h3 {
+      margin-top: 0;
+      color: #1565c0;
+      margin-bottom: 8px;
+    }
+
+    /* Paragraph "case studies" with subtle dot markers */
+    .service-example {
+      position: relative;
+      padding-left: 18px;
+      margin: 10px 0;
+      line-height: 1.55;
+    }
+
+    .service-example::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1565c0;
+      box-shadow: 0 0 0 3px rgba(21,101,192,0.12);
+    }
+
+    /* Gentle separation between items */
+    .service-example + .service-example {
+      border-top: 1px solid #edf2f7;
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    /* Entry animation */
+    @keyframes serviceFadeUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .service-group,
+      .service-group:hover {
+        transition: none;
+        animation: none;
+        transform: none;
+      }
     }
 
 
@@ -380,59 +451,65 @@
   <div class="container">
 
   <!-- Services Section -->
-  <section id="services" class="page-section">
-    <div class="section-box">
-      <h2>Our Services</h2>
-      <p>We solve real problems with practical, right-sized technology solutions. Each area below explains what we do and shares examples of how we have delivered results in the past.</p>
+<section id="services" class="page-section">
+  <div class="section-box">
+    <h2>Our Services</h2>
+    <p>We solve real problems with practical, right-sized technology solutions. Each area below explains what we do and shares examples of how we have delivered results in the past.</p>
 
-      <h3>Disconnected Systems?</h3>
-      <p>We integrate legacy platforms, cloud tools, and siloed data into a single source of truth. <strong>Recent results:</strong></p>
+    <div class="service-grid">
+      <!-- Card 1 -->
+      <div class="service-group">
+        <h3>Disconnected Systems?</h3>
+        <p>We integrate legacy platforms, cloud tools, and siloed data into a single source of truth. <strong>Recent results:</strong></p>
 
-      <div class="service-example">
-        We connected point-of-sale, billing, and financial systems for a wholesale food distributor, simplifying reporting and reducing errors.
-      </div>
-      <div class="divider"></div>
-      <div class="service-example">
-        We built automated ETL pipelines and dashboards for a publishing company to unify sales and finance data.
-      </div>
-      <div class="divider"></div>
-      <div class="service-example">
-        We eliminated manual entry by linking disconnected systems across finance, distribution, and sales.
-      </div>
-
-      <h3>Slow Reporting or Manual Work?</h3>
-      <p>We automate reporting and streamline processes so your team spends less time building spreadsheets and more time making decisions. <strong>Here are some wins we've delivered:</strong></p>
-
-      <div class="service-example">
-        We designed revenue, P&L, and inventory dashboards for leadership in publishing and food distribution.
-      </div>
-      <div class="divider"></div>
-      <div class="service-example">
-        We cut reporting preparation time from hours to minutes with automation and data transformation.
-      </div>
-      <div class="divider"></div>
-      <div class="service-example">
-        We delivered single-source, accurate views of performance across departments in professional services and media.
+        <div class="service-example">
+          We connected point-of-sale, billing, and financial systems for a wholesale food distributor, simplifying reporting and reducing errors.
+        </div>
+        <div class="service-example">
+          We built automated ETL pipelines and dashboards for a publishing company to unify sales and finance data.
+        </div>
+        <div class="service-example">
+          We eliminated manual entry by linking disconnected systems across finance, distribution, and sales.
+        </div>
       </div>
 
-      <h3>Outdated Infrastructure?</h3>
-      <p>We modernize your stack with cloud migrations, hybrid environments, and secure remote workforce support. <strong>How we've helped others:</strong></p>
+      <!-- Card 2 -->
+      <div class="service-group">
+        <h3>Slow Reporting or Manual Work?</h3>
+        <p>We automate reporting and streamline processes so your team spends less time building spreadsheets and more time making decisions. <strong>Here are some wins we have delivered:</strong></p>
 
-      <div class="service-example">
-        We upgraded a point-of-sale system for a wholesale distributor, reducing transaction time by 50% and improving customer experience.
-      </div>
-      <div class="divider"></div>
-      <div class="service-example">
-        We migrated financial and billing systems for professional services and publishing firms with minimal downtime.
-      </div>
-      <div class="divider"></div>
-      <div class="service-example">
-        We maintained security and compliance while upgrading Windows Server, RDS, and Citrix environments for multiple industries.
+        <div class="service-example">
+          We designed revenue, P&L, and inventory dashboards for leadership in publishing and food distribution.
+        </div>
+        <div class="service-example">
+          We cut reporting preparation time from hours to minutes with automation and data transformation.
+        </div>
+        <div class="service-example">
+          We delivered single-source, accurate views of performance across departments in professional services and media.
+        </div>
       </div>
 
-      <p><em>From quick advice to full project delivery, we untangle IT challenges and leave teams stronger across industries like publishing, wholesale distribution, and professional services.</em></p>
+      <!-- Card 3 -->
+      <div class="service-group">
+        <h3>Outdated Infrastructure?</h3>
+        <p>We modernize your stack with cloud migrations, hybrid environments, and secure remote workforce support. <strong>How we have helped others:</strong></p>
+
+        <div class="service-example">
+          We upgraded a point-of-sale system for a wholesale distributor, reducing transaction time by 50% and improving customer experience.
+        </div>
+        <div class="service-example">
+          We migrated financial and billing systems for professional services and publishing firms with minimal downtime.
+        </div>
+        <div class="service-example">
+          We maintained security and compliance while upgrading Windows Server, RDS, and Citrix environments for multiple industries.
+        </div>
+      </div>
     </div>
-  </section>
+
+    <p><em>From quick advice to full project delivery, we untangle IT challenges and leave teams stronger across industries like publishing, wholesale distribution, and professional services.</em></p>
+  </div>
+</section>
+
 
 
     <!-- Consultation -->
