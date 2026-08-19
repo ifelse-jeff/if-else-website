@@ -81,7 +81,11 @@
   </div>
 
   <footer>
-    &copy; 2025 If Else Data Solutions. All rights reserved.
+    &copy; <span id="copyright-year">2026</span> If Else Data Solutions. All rights reserved.
   </footer>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

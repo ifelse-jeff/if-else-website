@@ -38,6 +38,13 @@
     a.back-link:hover {
       text-decoration: underline;
     }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -64,5 +71,12 @@
 
   <a href="../index.html#insights" class="back-link">&larr; Back to Insights</a>
 
+  <footer>
+    &copy; <span id="copyright-year">2026</span> If Else Data Solutions. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

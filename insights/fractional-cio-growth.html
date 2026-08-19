@@ -30,6 +30,13 @@
       font-size: 0.9em;
       margin-bottom: 30px;
     }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -57,5 +64,13 @@
   <p class="back-link">
     <a href="/#insights">&larr; Back to Insights</a>
   </p>
+
+  <footer>
+    &copy; <span id="copyright-year">2026</span> If Else Data Solutions. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
