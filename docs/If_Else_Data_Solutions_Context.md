@@ -623,15 +623,27 @@ documented as the DO'S-list model article), rather than inventing a 5th
 template variant. All 3 dated 2026-08-20 (the actual publish date). Added
 matching cards to the Insights section in `index.html`.
 
-**Backfilled publish dates.** 3 of the original 5 Insights articles
-(`cloud-migration-pitfalls.html`, `data-quality-improvement.html`,
-`reporting-mistakes.html`) had no visible date at all, unlike the other
-2. Added a `.post-date` line + matching CSS to each, using assigned
-placeholder dates in the same 2025 window as the other articles
-(August 14, September 18, and October 22, 2025 respectively) since no
-real original publish date was on record. **Flagged to Jeff as
-placeholders, not verified facts** — replace with real dates if he has
-them.
+**Backfilled publish dates, then evenly re-spaced all 8.** 3 of the
+original 5 Insights articles (`cloud-migration-pitfalls.html`,
+`data-quality-improvement.html`, `reporting-mistakes.html`) had no
+visible date at all, unlike the other 2. Added a `.post-date` line +
+matching CSS to each with initial placeholder dates. Jeff then asked to
+respace every article's date "roughly evenly apart between now and May
+of 2025," keeping the existing display order. Final dates, evenly spaced
+(~66 days apart) from May 15, 2025 to 2026-08-20 (today, the actual
+publish date of the 3 newest articles), in homepage/doc list order:
+
+1. Why Fractional CIOs Are Critical for Growing Businesses — May 15, 2025
+2. What Most Mid-Market Firms Get Wrong About Reporting — July 20, 2025
+3. How a Fractional CIO Accelerates Business Growth — September 24, 2025
+4. Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls — November 29, 2025
+5. Top 5 Ways to Improve Data Quality in Your Organization — February 3, 2026
+6. How Small Businesses Can Use AI Without a Data Team — April 10, 2026
+7. The Real Cost of Disconnected Systems — June 15, 2026
+8. When Is It Time to Modernize Your Infrastructure? — August 20, 2026
+
+**These are still assigned placeholders, not verified facts** — replace
+with real dates if Jeff has them.
 
 **Site-wide em dash removal.** Per Jeff: "never use emdashes... it needs
 to read simpler, friendly and welcoming." Searched the whole site
