@@ -185,7 +185,9 @@ The live site at ifelsedata.com currently has:
 Logo: If Else Data Solutions logo
 Primary nav: Services | Schedule | About | Insights | Contact
 Contact methods in header: email (mailto link, see Data & Reference
-Tables) and phone
+Tables) and phone. **The phone "Call" button is currently hidden**
+(`display:none`, 2026-08-20) — see Data & Reference Tables and KNOWN
+OPEN ISSUES.
 
 ## Hero Section
 
@@ -489,7 +491,7 @@ padding to be comfortably tappable.
 | Mission statement | "If Else Data Solutions untangles your IT headaches so you can focus on running your business." |
 | Primary CTA (hero) | "View Our Services" |
 | Contact email (mailto, from hero button) | jeff@ifelsedata.com |
-| Phone number shown on site | 313.555.6667 — CONFIRMED as Jeff's personal cell (2026-08-20). Jeff does not want his personal cell exposed publicly and is considering swapping in a free Google Voice number that forwards to his cell. Decision parked for now ("I will deal with that later") — see RECOMMENDED NEXT STEPS. Do not remove or change this number without Jeff's go-ahead. |
+| Phone number (in markup, currently hidden from display) | 313.555.6667 — CONFIRMED as Jeff's personal cell (2026-08-20). Jeff does not want his personal cell exposed publicly. **Hidden on-page 2026-08-20** via `style="display:none;"` on both instances (header "Call" button, and the "Prefer email or a quick call?" line in Schedule a Consultation) — markup/tel: links left in place, just remove the inline style once a replacement number is ready. Considering a free Google Voice number as the eventual replacement; recovering/setting that up is on Jeff, not yet done. Do not remove this number from the markup or change it without Jeff's go-ahead. |
 | Formspree Form ID | `xkgbpqgk` |
 | CAPTCHA site key | `6LfcjW0rAAAAANnzxgImFynapjbHcubdXE_Rh-gE` |
 
@@ -528,10 +530,14 @@ padding to be comfortably tappable.
    2026-08-19.
 2. ~~Resolve the duplicate Fractional CIO Insights articles.~~ DONE
    2026-08-20 (differentiated, plus fixed a title/h1 bug).
-3. **Phone number: decide what to display instead of Jeff's personal
-   cell.** Parked 2026-08-20 pending Jeff setting up (or recovering) a
-   free Google Voice number. Once he has a number, swap it into the
-   `tel:` links in header/footer.
+3. **Phone number: swap in a real number once Jeff has one.** As of
+   2026-08-20 the phone display is hidden site-wide (both instances,
+   `display:none`) rather than showing Jeff's personal cell. Once he
+   sets up/recovers a Google Voice number: update the two `tel:` links
+   in `index.html` (header "Call" button, and the Schedule a
+   Consultation "Prefer email or a quick call?" line) to the new number,
+   then remove the `style="display:none;"` on both to make it visible
+   again.
 4. Confirm whether analytics is installed; add if desired.
 5. Confirm logo-usage permission for AdAge and Automotive News.
 6. Do an SEO pass (titles, meta descriptions, Open Graph, sitemap.xml,
@@ -825,14 +831,26 @@ and `[char]0x2019` (right single quote) instead of typing them literally
 in the command string. Worth remembering for any future non-ASCII
 find/replace in this repo.
 
+**Hid the phone number display (not a redesign, just hidden).** Per
+Jeff, hid both on-page instances of 313.555.6667 (header "Call" button;
+"Prefer email or a quick call?" line in Schedule a Consultation) via
+`style="display:none;"`, each with an explanatory HTML comment. Markup
+and `tel:` links deliberately left in place, not deleted, so restoring
+it later is a one-line revert once a replacement (likely Google Voice)
+number is ready. Did not rewrite the now-slightly-odd "or a quick call"
+copy next to the hidden number; flagged it to Jeff and left the decision
+to him.
+
 ## Current State After This Session
 The site now has 8 Insights articles (all with evenly-spaced dates, all
 with a consistent dynamic-year footer), a Fractional CIO-led Services
 section (4 cards, Fractional CIO first, AI messaging woven into 2 of the
 other 3), no em dashes anywhere in site copy, correctly aligned bullet
-dots, and the duplicate-article and title/h1-bug issues are resolved.
-This doc's own session log is now newest-entry-first. Remaining open
-items: the phone number decision (parked on Jeff), Insights template
+dots (root-caused to an orphaned duplicate CSS rule, not just a formula
+tweak), the duplicate-article and title/h1-bug issues are resolved, and
+the phone number is hidden site-wide pending a replacement number. This
+doc's own session log is now newest-entry-first. Remaining open items:
+getting Jeff a real number to display (parked on him), Insights template
 consolidation for the original 5 minus `reporting-mistakes.html` (KNOWN
 OPEN ISSUES 3b), and the usual SEO/accessibility/performance/analytics
 passes plus logo permissions, all still pending.
