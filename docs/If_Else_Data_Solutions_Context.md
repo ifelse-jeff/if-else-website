@@ -258,8 +258,8 @@ D&B Grocers Wholesale, Automotive News
 
 Note: AdAge and Automotive News are new additions not present in the
 ChatGPT-era migration record (which only listed the first four). Logo
-usage permission should be confirmed for these two if not already done —
-same caution the migration doc flagged for the original four.
+usage permission for all 6 confirmed by Jeff 2026-08-20 — see KNOWN OPEN
+ISSUES.
 
 ## Insights Section — 9 articles currently live (as of 2026-08-20)
 
@@ -316,11 +316,13 @@ bump again. Fixed 2026-08-19 — see SESSION LOG.
    explainer and a "how it accelerates growth" piece; also fixed a
    leftover `<title>`/`<h1>` copy-paste bug on the growth article. See
    SESSION LOG.
-2. **Customer logo permissions.** AdAge and Automotive News were added to
-   the client-logo strip at some point after the ChatGPT-era record was
-   written. Confirm public-display permission exists for these, same as
-   the original four (313 Alpha, Crain Communications, Shammami &
-   Kasgorgis CPA PC, D&B Grocers Wholesale).
+2. ~~Customer logo permissions.~~ **RESOLVED 2026-08-20** — Jeff
+   confirmed permission isn't a concern for any of the 6 client logos
+   currently displayed (313 Alpha, Crain Communications, Shammami &
+   Kasgorgis CPA PC, AdAge, D&B Grocers Wholesale, Automotive News): "I
+   know all of these customers." No verbal/written proof-of-permission
+   collected, just Jeff's direct confirmation as the business owner,
+   which is authoritative here.
 3. ~~Footer copyright year shows 2025.~~ **RESOLVED 2026-08-19** — now
    dynamic on every page (index + all 5 Insights articles). See SESSION
    LOG.
@@ -552,7 +554,8 @@ match homepage display order)
    call?" wording on that line (see the HTML comment right above it for
    the exact revert).
 4. Confirm whether analytics is installed; add if desired.
-5. Confirm logo-usage permission for AdAge and Automotive News.
+5. ~~Confirm logo-usage permission for AdAge and Automotive News.~~ DONE
+   2026-08-20 (confirmed for all 6 logos).
 6. Do an SEO pass (titles, meta descriptions, Open Graph, sitemap.xml,
    robots.txt, Search Console).
 7. Do an accessibility pass (headings, labels, contrast, keyboard nav,
