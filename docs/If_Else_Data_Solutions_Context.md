@@ -724,6 +724,27 @@ padding-top) looked fine. Fixed by adding a second rule,
 conditional/sibling-dependent padding, verify against an item that
 actually receives that padding, not just the first one in the list.
 
+**Third attempt (still same session):** Jeff sent a second, annotated
+screenshot showing the dot still sitting visibly above the vertical
+center of the adjacent text in every example he circled, first bullets
+included, meaning the `0.5em` guess itself was wrong, not just the
+padding-top compensation. Two guessed em-values in a row missing the
+mark means guessing was the wrong approach. Replaced both `top`
+declarations with the CSS `lh` unit, which is the browser's *actual*
+computed line-height for the element, not an approximation:
+`top: calc((1lh - 8px) / 2)` (and `calc(12px + (1lh - 8px) / 2)` for the
+padding-compensated rule), which is the exact top-edge offset that
+centers an 8px-tall dot within one real line box. Dropped the
+`translateY(-50%)` trick since `top` now computes the precise offset
+directly. **Not independently visually verified** (no browser render
+available in this environment) — Jeff needs to confirm with a fresh
+screenshot. `lh` unit browser support: Chrome/Edge 109+ (2023),
+Firefox 129+ (2024), Safari 16.4+ (2023) — should be safe for this
+site's real-world traffic by 2026, but note it here in case an old
+browser ever renders this oddly (invalid `lh` support would make the
+whole `top` declaration invalid and fall back to default static
+position).
+
 **NOT done / left for later:**
 - Did not touch the em dash in this doc's own prose (out of scope; the
   rule is for site copy, not internal documentation).

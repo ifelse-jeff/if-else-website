@@ -430,8 +430,11 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 0.5em;
-      transform: translateY(-50%);
+      /* Exact vertical center of one line's height, using the "lh" unit
+         (the element's actual computed line-height in px) instead of an
+         approximate "em" guess. This is the precise top-edge offset that
+         centers an 8px dot within one line box, no font-metric guessing. */
+      top: calc((1lh - 8px) / 2);
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -451,7 +454,7 @@
        need that same amount added back, or the dot lands in the gap
        above the text instead of next to it. */
     .service-example + .service-example::before {
-      top: calc(12px + 0.5em);
+      top: calc(12px + (1lh - 8px) / 2);
     }
 
     /* Entry animation */
