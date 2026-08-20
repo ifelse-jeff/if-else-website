@@ -59,20 +59,26 @@ Stack:
 - No build process, no package manager, no bundler
 - No CMS, no database, no backend application code
 
-Known repo structure (from VS Code Explorer, 2026-08-19):
+Known repo structure (updated 2026-08-20 to include the 3 new Insights
+articles added that session):
 
 ```
 /
 ├── CNAME
 ├── index.html
 ├── README.md
+├── docs/
+│   └── If_Else_Data_Solutions_Context.md   (this file)
 ├── images/
 └── insights/
+    ├── ai-without-data-team.html
     ├── cloud-migration-pitfalls.html
+    ├── cost-of-disconnected-systems.html
     ├── data-quality-improvement.html
     ├── fractional-cio-growth.html
     ├── fractional-cio.html
-    └── reporting-mistakes.html
+    ├── reporting-mistakes.html
+    └── when-to-modernize-infrastructure.html
 ```
 
 Third-party services:
@@ -109,6 +115,14 @@ document's writing, the live site has already moved substantially past
 that problem** — see CURRENT SITE STATE below. Whoever did that work
 (Jeff or an earlier Claude Code session) is not documented anywhere yet;
 this doc starts the record going forward.
+
+**Positioning update (2026-08-20):** Per Jeff, the company is now being
+marketed with Fractional CIO services as the lead offering, not just one
+of several service areas. The Services section's first card and intro
+paragraph were updated accordingly (see CURRENT SITE STATE and SESSION
+LOG). Keep this framing in mind for any future homepage, About, or
+Insights work: Fractional CIO is the front door, the other service areas
+support it.
 
 ---
 
@@ -178,23 +192,37 @@ Tables) and phone
 Headline: "Empowering Small Businesses with Enterprise-Grade Solutions"
 CTA: "View Our Services" button
 
-## Services Section — already reorganized around business outcomes
+## Services Section — Fractional CIO-led, 4 cards (as of 2026-08-20)
 
-Three core service areas (this matches the company-first direction the
-ChatGPT strategy doc called for — this work appears already done):
+Intro paragraph leads with Fractional CIO positioning before the
+practical/AI-assisted framing. Four service cards, in display order:
 
-1. **Disconnected Systems** — integration of legacy platforms, cloud
+1. **Fractional CIO ("Growing Without a CIO?")** — the lead offering,
+   added 2026-08-20 per Jeff's explicit direction to market the company
+   as a Fractional CIO. Executive-level IT leadership without full-time
+   cost: strategy, vendor evaluation, project oversight, IT spend aligned
+   to growth plans. Links out to both Fractional CIO Insights articles
+   (`fractional-cio.html`, `fractional-cio-growth.html`) from within the
+   result bullets.
+2. **Disconnected Systems** — integration of legacy platforms, cloud
    tools, siloed data. Example results: connected POS/billing/financial
    systems for a wholesale food distributor; built automated ETL
-   pipelines for a publishing company.
-2. **Slow Reporting or Manual Work** — automation/streamlined processes
+   pipelines for a publishing company; AI-assisted data matching between
+   systems.
+3. **Slow Reporting or Manual Work** — automation/streamlined processes
    to reduce spreadsheet time. Examples: dashboards for
    publishing/food-distribution clients; cut reporting prep from hours to
-   minutes.
-3. **Outdated Infrastructure** — cloud migrations, hybrid environments,
+   minutes; AI-assisted error/anomaly checks alongside human review.
+4. **Outdated Infrastructure** — cloud migrations, hybrid environments,
    secure remote workforce support. Examples: POS system upgrade (50%
    transaction-time reduction); financial system migration with minimal
-   downtime.
+   downtime. (No AI messaging added here; it didn't fit naturally, see
+   DO'S AND DON'TS.)
+
+CSS note: `.service-example::before` bullet dots were re-centered
+2026-08-20 (`top: 0.5em; transform: translateY(-50%);` instead of a
+fixed `top: 0.65em`) per Jeff's feedback that they looked
+vertically misaligned against wrapped multi-line bullet text.
 
 ## About Us Section
 
@@ -392,8 +420,12 @@ present, not just that the layout looks fine.
 
 - Do present If Else Data Solutions as a boutique technology consulting
   firm and long-term technology partner.
-- Do lead with business problems and outcomes (the current three-card
-  services section is a good model — keep this pattern).
+- Do lead with business problems and outcomes (the Services section's
+  question-style card headings, e.g. "Growing Without a CIO?", are a
+  good model — keep this pattern).
+- Do treat Fractional CIO as the lead service offering (added
+  2026-08-20, always the first card) rather than one option among
+  equals — see PROJECT OVERVIEW's positioning note.
 - Do keep technology names as supporting evidence, not the headline.
 - Do preserve the simple static HTML/CSS/JS architecture.
 - Do keep HTML/CSS readable and manually editable.
@@ -556,9 +588,11 @@ opened any.
 Resolved 2 of the 3 outstanding NEEDS CONFIRMATION items (repo identity,
 phone number), then did a full content-expansion pass: wove AI messaging
 into the Services section, fixed the duplicate Fractional CIO articles
-(with a bonus bug fix), added 3 new Insights articles, backfilled missing
-publish dates, and did a site-wide sweep removing every em dash. All work
-committed and pushed live in 3 commits.
+(with a bonus bug fix), added 3 new Insights articles, backfilled and
+then evenly re-spaced all 8 article dates, did a site-wide sweep removing
+every em dash, reversed the session log to newest-first, repositioned the
+company around Fractional CIO as the lead service offering, and fixed a
+bullet-alignment visual bug. All work committed and pushed live.
 
 ## What Was Done
 
@@ -657,6 +691,25 @@ DON'TS and BEST PRACTICES > Tone, and saved to Claude's cross-session
 memory (`site-copy-tone.md`) so it persists even if this doc isn't
 re-read carefully.
 
+**Added Fractional CIO as the lead Services card.** Per Jeff's explicit
+direction to market the company as a Fractional CIO, added a new first
+service card, "Growing Without a CIO?", ahead of the existing three
+(which shifted down to cards 2-4, comments renumbered to match). Rewrote
+the Services intro paragraph to lead with Fractional CIO positioning
+before the existing "practical, right-sized solutions" framing. The new
+card links to both Fractional CIO Insights articles from within its
+result bullets, not as a separate bolted-on CTA. Confirmed the existing
+`.service-grid` CSS (2-column responsive grid, no fixed card count) needed
+no changes to support a 4th card.
+
+**Fixed bullet-dot vertical alignment.** Jeff flagged (via screenshot)
+that the `.service-example::before` dot markers looked vertically
+misaligned against the bulleted text, especially on 2-line bullets.
+Changed `top: 0.65em` (a fixed offset guess) to
+`top: 0.5em; transform: translateY(-50%);`, which centers the dot on the
+font's em-box middle rather than an arbitrary pixel offset, a more robust
+fix that isn't tied to one specific font-size/line-height combination.
+
 **NOT done / left for later:**
 - Did not touch the em dash in this doc's own prose (out of scope; the
   rule is for site copy, not internal documentation).
@@ -679,10 +732,13 @@ re-read carefully.
 - `insights/when-to-modernize-infrastructure.html` (new)
 - `docs/If_Else_Data_Solutions_Context.md` (this file)
 
-Committed and pushed as 3 commits: `0d0336e` (Services AI copy +
+Committed and pushed as 6 commits: `0d0336e` (Services AI copy +
 Fractional CIO differentiation), `294316e` (3 new articles + date
-backfill + em dash cleanup). (`7d19765` from the prior session also
-pushed successfully at the start of this one.)
+backfill + em dash cleanup), `c99644c` (doc update), `bdff417` (session
+log reordered newest-first), `6370ead` (evenly-spaced article dates),
+`2ed50d9` (Fractional CIO lead service card). Bullet-dot alignment fix
+pending its own commit at the end of this session. (`7d19765` from the
+prior session also pushed successfully at the start of this one.)
 
 ## Environment note
 Same OneDrive-related `ENOENT` issue as the prior session when using
@@ -696,14 +752,16 @@ in the command string. Worth remembering for any future non-ASCII
 find/replace in this repo.
 
 ## Current State After This Session
-The site now has 8 Insights articles (all with dates, all with a
-consistent dynamic-year footer), AI messaging woven into Services, no
-em dashes anywhere in site copy, and the duplicate-article and
-title/h1-bug issues are resolved. Remaining open items: the phone number
-decision (parked on Jeff), Insights template consolidation for the
-original 5 minus `reporting-mistakes.html` (KNOWN OPEN ISSUES 3b), and
-the usual SEO/accessibility/performance/analytics passes plus logo
-permissions, all still pending.
+The site now has 8 Insights articles (all with evenly-spaced dates, all
+with a consistent dynamic-year footer), a Fractional CIO-led Services
+section (4 cards, Fractional CIO first, AI messaging woven into 2 of the
+other 3), no em dashes anywhere in site copy, correctly aligned bullet
+dots, and the duplicate-article and title/h1-bug issues are resolved.
+This doc's own session log is now newest-entry-first. Remaining open
+items: the phone number decision (parked on Jeff), Insights template
+consolidation for the original 5 minus `reporting-mistakes.html` (KNOWN
+OPEN ISSUES 3b), and the usual SEO/accessibility/performance/analytics
+passes plus logo permissions, all still pending.
 
 ---
 
