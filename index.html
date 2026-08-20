@@ -446,6 +446,14 @@
       margin-top: 12px;
     }
 
+    /* The dot's "top" is measured from this box's own padding edge, so
+       items with the extra padding-top above (from the separator rule)
+       need that same amount added back, or the dot lands in the gap
+       above the text instead of next to it. */
+    .service-example + .service-example::before {
+      top: calc(12px + 0.5em);
+    }
+
     /* Entry animation */
     @keyframes serviceFadeUp {
       from { opacity: 0; transform: translateY(6px); }

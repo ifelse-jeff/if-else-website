@@ -219,10 +219,11 @@ practical/AI-assisted framing. Four service cards, in display order:
    downtime. (No AI messaging added here; it didn't fit naturally, see
    DO'S AND DON'TS.)
 
-CSS note: `.service-example::before` bullet dots were re-centered
-2026-08-20 (`top: 0.5em; transform: translateY(-50%);` instead of a
-fixed `top: 0.65em`) per Jeff's feedback that they looked
-vertically misaligned against wrapped multi-line bullet text.
+CSS note: `.service-example::before` bullet dots were fixed 2026-08-20
+after Jeff caught real misalignment on 2nd/3rd bullets (root cause was
+the separator rule's `padding-top: 12px` shifting text down without a
+matching adjustment to the dot's `top` offset). See SESSION LOG for the
+full root-cause writeup before touching this CSS again.
 
 ## About Us Section
 
@@ -702,13 +703,26 @@ result bullets, not as a separate bolted-on CTA. Confirmed the existing
 `.service-grid` CSS (2-column responsive grid, no fixed card count) needed
 no changes to support a 4th card.
 
-**Fixed bullet-dot vertical alignment.** Jeff flagged (via screenshot)
-that the `.service-example::before` dot markers looked vertically
-misaligned against the bulleted text, especially on 2-line bullets.
-Changed `top: 0.65em` (a fixed offset guess) to
-`top: 0.5em; transform: translateY(-50%);`, which centers the dot on the
-font's em-box middle rather than an arbitrary pixel offset, a more robust
-fix that isn't tied to one specific font-size/line-height combination.
+**Fixed bullet-dot vertical alignment (took 2 tries).** Jeff flagged (via
+screenshot) that the `.service-example::before` dot markers looked
+vertically misaligned against the bulleted text. First attempt changed
+`top: 0.65em` to `top: 0.5em; transform: translateY(-50%);`, centering
+the dot on the font's em-box middle instead of an arbitrary pixel offset.
+That wasn't actually the bug: Jeff's follow-up screenshot showed the 2nd
+and 3rd bullets in a card still visibly wrong (dot sitting up near the
+separator line, well above the text). Root cause: `.service-example`
+is the `::before`'s own positioning context, and `.service-example +
+.service-example` (the separator-line rule) adds `padding-top: 12px` to
+that same box for every item after the first. The dot's `top` offset is
+measured from the box's padding edge, i.e. *before* that 12px is added,
+so on 2nd/3rd/etc. bullets the dot landed in the padding gap instead of
+next to the text, while the first bullet in each card (no extra
+padding-top) looked fine. Fixed by adding a second rule,
+`.service-example + .service-example::before { top: calc(12px + 0.5em);
+}`, which adds the same 12px back for exactly the items that have it.
+**Lesson:** when a positioned pseudo-element's containing block also has
+conditional/sibling-dependent padding, verify against an item that
+actually receives that padding, not just the first one in the list.
 
 **NOT done / left for later:**
 - Did not touch the em dash in this doc's own prose (out of scope; the
