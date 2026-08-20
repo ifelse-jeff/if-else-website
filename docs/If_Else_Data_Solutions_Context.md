@@ -732,13 +732,13 @@ fix that isn't tied to one specific font-size/line-height combination.
 - `insights/when-to-modernize-infrastructure.html` (new)
 - `docs/If_Else_Data_Solutions_Context.md` (this file)
 
-Committed and pushed as 6 commits: `0d0336e` (Services AI copy +
+Committed and pushed as 7 commits: `0d0336e` (Services AI copy +
 Fractional CIO differentiation), `294316e` (3 new articles + date
 backfill + em dash cleanup), `c99644c` (doc update), `bdff417` (session
 log reordered newest-first), `6370ead` (evenly-spaced article dates),
-`2ed50d9` (Fractional CIO lead service card). Bullet-dot alignment fix
-pending its own commit at the end of this session. (`7d19765` from the
-prior session also pushed successfully at the start of this one.)
+`2ed50d9` (Fractional CIO lead service card), `55209f3` (bullet-dot
+alignment fix + this doc audit). (`7d19765` from the prior session also
+pushed successfully at the start of this one.)
 
 ## Environment note
 Same OneDrive-related `ENOENT` issue as the prior session when using
