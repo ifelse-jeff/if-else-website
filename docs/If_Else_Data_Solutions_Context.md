@@ -5,7 +5,7 @@
 Version: 1.0
 Audience: Claude Code (VS Code) sessions, and any successor AI assistant
 Prepared For: Ongoing website content, design, and code work
-Last Updated: 2026-08-19
+Last Updated: 2026-08-20
 
 ---
 
@@ -34,10 +34,12 @@ This doc is the CLAUDE.md-style counterpart to a separate Claude Project
 This file is what Claude Code actually reads when working in the repo.
 Keep the two in sync when something durable changes in either place.
 
-**Two open items marked below need Jeff's confirmation/correction — see
-"NEEDS CONFIRMATION" tags throughout.** Everything else is drawn directly
-from the live site (fetched 2026-08-19) or the consolidated ChatGPT
-migration record.
+**One open item marked below still needs Jeff's confirmation/correction —
+see the "NEEDS CONFIRMATION" tag in USER WORKING STYLE.** The repo
+identity and phone number items originally flagged here were resolved
+2026-08-19 and 2026-08-20 respectively (see SESSION LOG). Everything else
+is drawn directly from the live site (fetched 2026-08-19) or the
+consolidated ChatGPT migration record.
 
 ---
 
@@ -45,8 +47,10 @@ migration record.
 
 Hosting: GitHub Pages (static hosting, no server-side runtime)
 Domain: ifelsedata.com (custom domain via CNAME file in repo root)
-Repo (local folder name seen in VS Code): IF-ELSE-WEBSITE — NEEDS CONFIRMATION
-(exact GitHub repo owner/URL not yet confirmed in this doc)
+Repo: https://github.com/ifelse-jeff/if-else-website — CONFIRMED 2026-08-19
+(discovered via `git remote -v` while debugging a push auth failure, not
+yet explicitly confirmed in words by Jeff, but this is the actual remote
+the local repo pushes to, so treat it as ground truth).
 
 Stack:
 
@@ -225,18 +229,24 @@ ChatGPT-era migration record (which only listed the first four). Logo
 usage permission should be confirmed for these two if not already done —
 same caution the migration doc flagged for the original four.
 
-## Insights Section — 5 articles currently live
+## Insights Section — 8 articles currently live (as of 2026-08-20)
 
-1. "Why Fractional CIOs Are Critical for Growing Businesses"
+1. "Why Fractional CIOs Are Critical for Growing Businesses" (the "what
+   is a Fractional CIO" explainer)
 2. "What Most Mid-Market Firms Get Wrong About Reporting"
-3. "How a Fractional CIO Accelerates Business Growth"
+3. "How a Fractional CIO Accelerates Business Growth" (the "growth
+   outcomes" angle, rewritten 2026-08-20 to stop overlapping with #1)
 4. "Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls"
 5. "Top 5 Ways to Improve Data Quality in Your Organization"
+6. "How Small Businesses Can Use AI Without a Data Team" (new
+   2026-08-20)
+7. "The Real Cost of Disconnected Systems" (new 2026-08-20)
+8. "When Is It Time to Modernize Your Infrastructure?" (new 2026-08-20)
 
-**Known open issue: #1 and #3 are still duplicative** (same underlying
-topic — Fractional CIO — under two different titles). This was flagged in
-the ChatGPT migration doc and has not been resolved. See KNOWN OPEN
-ISSUES below.
+~~Known open issue: #1 and #3 were duplicative.~~ **RESOLVED
+2026-08-20** — #3's `<title>`/`<h1>` also had a leftover copy-paste bug
+(literally said "Why Fractional CIOs Are Critical..." instead of its own
+headline); both the duplication and the bug are fixed. See SESSION LOG.
 
 ## Forms
 
@@ -262,12 +272,11 @@ bump again. Fixed 2026-08-19 — see SESSION LOG.
 
 # KNOWN OPEN ISSUES
 
-1. **Duplicate Fractional CIO Insights articles.** "Why Fractional CIOs
-   Are Critical for Growing Businesses" and "How a Fractional CIO
-   Accelerates Business Growth" cover essentially the same ground. Either
-   consolidate into one article, or clearly differentiate their angles
-   (e.g., one explains *what* a Fractional CIO is, the other explains
-   *when/why* a growing company needs one).
+1. ~~Duplicate Fractional CIO Insights articles.~~ **RESOLVED
+   2026-08-20** — differentiated into a "what is a Fractional CIO"
+   explainer and a "how it accelerates growth" piece; also fixed a
+   leftover `<title>`/`<h1>` copy-paste bug on the growth article. See
+   SESSION LOG.
 2. **Customer logo permissions.** AdAge and Automotive News were added to
    the client-logo strip at some point after the ChatGPT-era record was
    written. Confirm public-display permission exists for these, same as
@@ -276,18 +285,22 @@ bump again. Fixed 2026-08-19 — see SESSION LOG.
 3. ~~Footer copyright year shows 2025.~~ **RESOLVED 2026-08-19** — now
    dynamic on every page (index + all 5 Insights articles). See SESSION
    LOG.
-3b. **Insights article template inconsistency (found 2026-08-19, not yet
-   fixed).** While fixing the footer issue above, found that the 5
-   Insights articles were each authored independently and use 4 different
-   HTML/CSS templates: different fonts/spacing/color rules, some wrapped
-   in a `.post`/`header` card layout and some not, and inconsistent
-   "Back to Insights" link targets (`/#insights` root-relative on some,
-   `../index.html#insights` relative on others). All 5 now at least share
-   a consistent footer, but the rest of the template is not unified. This
-   is a design/content decision (pick one template, migrate all 5) rather
-   than a mechanical fix, so it's logged here rather than corrected
-   automatically — flag for a future session alongside or after the
-   duplicate-Fractional-CIO-articles decision.
+3b. **Insights article template inconsistency (found 2026-08-19, still
+   not fixed).** The original 5 Insights articles were each authored
+   independently and use several different HTML/CSS templates: different
+   fonts/spacing/color rules, some wrapped in a `.post`/`header` card
+   layout and some not, and inconsistent "Back to Insights" link targets
+   (`/#insights` root-relative on some, `../index.html#insights` relative
+   on others). All 8 articles now at least share a consistent dynamic-year
+   footer, and the 3 new articles added 2026-08-20
+   (`ai-without-data-team.html`, `cost-of-disconnected-systems.html`,
+   `when-to-modernize-infrastructure.html`) all deliberately reuse the
+   `reporting-mistakes.html` template (the one the DO'S list already
+   calls the best model), so new content isn't adding to the sprawl. But
+   the original 5 are still on their old, inconsistent templates. This is
+   a design/content decision (pick one template, migrate the older
+   articles) rather than a mechanical fix, so it's logged here rather
+   than corrected automatically.
 4. **Logo/brand mark.** Per Jeff (2026-08-19 conversation): "resolved for
    now." No further action needed unless he raises it again. (Prior
    ChatGPT-era attempts all failed — see FAILED APPROACHES below, kept
@@ -368,6 +381,12 @@ present, not just that the layout looks fine.
   side effects, when the full file is available.
 - Don't add flashy animation, excessive gradients, or trendy visual
   effects — this should read as enterprise/corporate, not startup.
+- Don't use em dashes in any on-site copy. Per Jeff (2026-08-20): "never
+  use emdashes... it needs to read simpler, friendly and welcoming." Use
+  periods or commas instead. This was a real cleanup, not just a
+  going-forward rule — all pre-existing em dashes across the site were
+  removed 2026-08-20. (This doc's own internal prose is not in scope for
+  that rule, only actual site copy.)
 
 **DO**
 
@@ -403,7 +422,9 @@ they trust the company, (5) what should they do next.
 **Tone.** Professional, experienced, practical, direct, honest, confident
 without arrogance, business-focused. Avoid buzzwords, empty superlatives
 ("world-class," "revolutionary"), dense jargon, self-congratulatory
-language.
+language. Per Jeff (2026-08-20), also keep it simple, friendly, and
+welcoming rather than dense or corporate-sounding, and never use em
+dashes (see DO'S AND DON'TS).
 
 **Design.** Stability, trust, precision, simplicity, enterprise competence
 without corporate heaviness. Should not resemble a SaaS startup, trendy
@@ -435,7 +456,7 @@ padding to be comfortably tappable.
 | Mission statement | "If Else Data Solutions untangles your IT headaches so you can focus on running your business." |
 | Primary CTA (hero) | "View Our Services" |
 | Contact email (mailto, from hero button) | jeff@ifelsedata.com |
-| Phone number shown on site | 313.555.6667 — NEEDS CONFIRMATION (this has the look of a placeholder number; please confirm it's real before treating it as ground truth) |
+| Phone number shown on site | 313.555.6667 — CONFIRMED as Jeff's personal cell (2026-08-20). Jeff does not want his personal cell exposed publicly and is considering swapping in a free Google Voice number that forwards to his cell. Decision parked for now ("I will deal with that later") — see RECOMMENDED NEXT STEPS. Do not remove or change this number without Jeff's go-ahead. |
 | Formspree Form ID | `xkgbpqgk` |
 | CAPTCHA site key | `6LfcjW0rAAAAANnzxgImFynapjbHcubdXE_Rh-gE` |
 
@@ -455,13 +476,16 @@ padding to be comfortably tappable.
 - Respect for Client Time
 - Honesty in Every Engagement
 
-## Current Insights articles (live)
+## Current Insights articles (live, as of 2026-08-20)
 
 1. Why Fractional CIOs Are Critical for Growing Businesses
 2. What Most Mid-Market Firms Get Wrong About Reporting
 3. How a Fractional CIO Accelerates Business Growth
 4. Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls
 5. Top 5 Ways to Improve Data Quality in Your Organization
+6. How Small Businesses Can Use AI Without a Data Team
+7. The Real Cost of Disconnected Systems
+8. When Is It Time to Modernize Your Infrastructure?
 
 ---
 
@@ -469,20 +493,26 @@ padding to be comfortably tappable.
 
 1. ~~Update or dynamically generate the footer copyright year.~~ DONE
    2026-08-19.
-2. Confirm the phone number displayed is real, not a placeholder.
-3. Confirm whether analytics is installed; add if desired.
-4. Confirm logo-usage permission for AdAge and Automotive News.
-5. Do an SEO pass (titles, meta descriptions, Open Graph, sitemap.xml,
+2. ~~Resolve the duplicate Fractional CIO Insights articles.~~ DONE
+   2026-08-20 (differentiated, plus fixed a title/h1 bug).
+3. **Phone number: decide what to display instead of Jeff's personal
+   cell.** Parked 2026-08-20 pending Jeff setting up (or recovering) a
+   free Google Voice number. Once he has a number, swap it into the
+   `tel:` links in header/footer.
+4. Confirm whether analytics is installed; add if desired.
+5. Confirm logo-usage permission for AdAge and Automotive News.
+6. Do an SEO pass (titles, meta descriptions, Open Graph, sitemap.xml,
    robots.txt, Search Console).
-6. Do an accessibility pass (headings, labels, contrast, keyboard nav,
+7. Do an accessibility pass (headings, labels, contrast, keyboard nav,
    focus states).
-7. Do a performance pass (image optimization, lazy loading).
-8. Resolve the duplicate Fractional CIO Insights articles (consolidate or
-   differentiate).
+8. Do a performance pass (image optimization, lazy loading).
 9. Decide on and migrate to one consistent Insights article template
-   (see KNOWN OPEN ISSUES item 3b).
-10. Confirm this doc's INFRASTRUCTURE and USER WORKING STYLE sections
-    (marked NEEDS CONFIRMATION above) and correct anything wrong.
+   (see KNOWN OPEN ISSUES item 3b) — the 3 newest articles already use
+   the target template, so this is now "migrate the remaining 5," not
+   "pick a template from scratch."
+10. Confirm the USER WORKING STYLE section (still marked NEEDS
+    CONFIRMATION above) and correct anything wrong. (INFRASTRUCTURE's
+    repo-identity item is now resolved, see above.)
 
 ---
 
@@ -597,3 +627,148 @@ Every page on the site (`index.html` + all 5 Insights articles) now
 shows a self-updating copyright year in a consistent footer. Insights
 template consistency, the duplicate Fractional CIO articles, and the
 three NEEDS CONFIRMATION items remain open for the next session.
+
+---
+
+# SESSION LOG — 2026-08-20
+
+## Summary
+Resolved 2 of the 3 outstanding NEEDS CONFIRMATION items (repo identity,
+phone number), then did a full content-expansion pass: wove AI messaging
+into the Services section, fixed the duplicate Fractional CIO articles
+(with a bonus bug fix), added 3 new Insights articles, backfilled missing
+publish dates, and did a site-wide sweep removing every em dash. All work
+committed and pushed live in 3 commits.
+
+## What Was Done
+
+**Git push authentication fixed.** The previous session's commit
+(`7d19765`) hadn't actually reached GitHub; `git push` failed with
+"Invalid username or token." Confirmed Git Credential Manager 2.5.1 is
+installed and set as the global credential helper, but no GitHub account
+was ever logged in (nothing in Windows Credential Manager under
+git/github). The fix needed a real interactive terminal window (GCM
+needs to pop a browser window, which a non-interactive tool call can't
+trigger) — Jeff ran `git push origin main` himself and completed the
+browser-based GitHub login. All 3 commits this session pushed cleanly
+after that. This also incidentally confirmed the repo identity NEEDS
+CONFIRMATION item: `https://github.com/ifelse-jeff/if-else-website`.
+
+**Phone number NEEDS CONFIRMATION resolved (parked, not fixed).**
+313.555.6667 is Jeff's real personal cell, not a placeholder as the doc
+speculated, but he doesn't want it exposed publicly. Discussed options
+(remove entirely, get a dedicated business/VoIP number, keep as-is);
+Jeff wants to reuse or recreate a Google Voice number but doesn't
+remember the old one. Confirmed via web search that Google Voice's
+personal free tier ([sources in that turn's response]) still exists as
+of August 2026, despite Google introducing two new *paid* personal tiers
+in July 2026 (Starter $10/mo, Standard $20/mo) — the free tier still
+covers what's needed here. Decision: parked. Jeff will set up/recover a
+number on his own; the site's `tel:` links are unchanged for now.
+
+**Services section: wove in AI messaging.** Added one intro sentence and
+two new example bullets (Disconnected Systems card, Slow Reporting card)
+about AI-assisted tooling. Deliberately framed as "AI isn't a
+replacement for human experience and judgment" per Jeff's specific
+direction, and left the third card (Outdated Infrastructure) alone
+rather than forcing an AI mention where it didn't fit naturally.
+
+**Fixed the duplicate Fractional CIO articles (KNOWN OPEN ISSUES #1).**
+Jeff chose "differentiate" over "consolidate." While reading the two
+files to plan the rewrite, found `insights/fractional-cio-growth.html`
+had a pre-existing bug: its `<title>` and `<h1>` both read "Why
+Fractional CIOs Are Critical for Growing Businesses" (a copy-paste
+leftover), even though the homepage card that links to it is titled "How
+a Fractional CIO Accelerates Business Growth." That's likely the real
+reason the two articles felt duplicative to a site visitor, not just
+topic overlap. Fixed the title/h1 and rewrote the body to focus purely
+on growth outcomes (faster decisions, IT spend matched to growth plans,
+fewer costly missteps), removing the "what is a Fractional CIO"
+explainer content that overlapped with the other article. Left
+`fractional-cio.html` as the explainer piece, lightly rewritten for
+tone.
+
+**Added 3 new Insights articles**, topics chosen by Jeff from a proposed
+list tied to the existing service pillars plus his explicit ask to cover
+AI for small businesses:
+- `insights/ai-without-data-team.html` — "How Small Businesses Can Use
+  AI Without a Data Team"
+- `insights/cost-of-disconnected-systems.html` — "The Real Cost of
+  Disconnected Systems"
+- `insights/when-to-modernize-infrastructure.html` — "When Is It Time to
+  Modernize Your Infrastructure?"
+
+All 3 deliberately reuse the `reporting-mistakes.html` template (already
+documented as the DO'S-list model article), rather than inventing a 5th
+template variant. All 3 dated 2026-08-20 (the actual publish date). Added
+matching cards to the Insights section in `index.html`.
+
+**Backfilled publish dates.** 3 of the original 5 Insights articles
+(`cloud-migration-pitfalls.html`, `data-quality-improvement.html`,
+`reporting-mistakes.html`) had no visible date at all, unlike the other
+2. Added a `.post-date` line + matching CSS to each, using assigned
+placeholder dates in the same 2025 window as the other articles
+(August 14, September 18, and October 22, 2025 respectively) since no
+real original publish date was on record. **Flagged to Jeff as
+placeholders, not verified facts** — replace with real dates if he has
+them.
+
+**Site-wide em dash removal.** Per Jeff: "never use emdashes... it needs
+to read simpler, friendly and welcoming." Searched the whole site
+(`—` and other dash variants) and rewrote every instance in
+`index.html`, `cloud-migration-pitfalls.html`, `data-quality-improvement.html`,
+and `reporting-mistakes.html` (the newly-touched files were already
+clean) into simpler punctuation (periods, commas, or a colon). Also
+changed one en-dash number range ("2–4 weeks") to a plain hyphen for
+consistency. This is now a durable house-style rule, added to DO'S AND
+DON'TS and BEST PRACTICES > Tone, and saved to Claude's cross-session
+memory (`site-copy-tone.md`) so it persists even if this doc isn't
+re-read carefully.
+
+**NOT done / left for later:**
+- Did not touch the em dash in this doc's own prose (out of scope; the
+  rule is for site copy, not internal documentation).
+- Did not unify the Insights article templates further than described
+  above — the original 5 (minus the 3 newly-matched-to-`reporting-mistakes`
+  articles) are still on inconsistent templates. See KNOWN OPEN ISSUES
+  3b.
+- Did not resolve the phone number display (parked, see above).
+- USER WORKING STYLE section is still unconfirmed by Jeff.
+
+## Files Modified
+- `index.html`
+- `insights/fractional-cio.html`
+- `insights/fractional-cio-growth.html`
+- `insights/cloud-migration-pitfalls.html`
+- `insights/data-quality-improvement.html`
+- `insights/reporting-mistakes.html`
+- `insights/ai-without-data-team.html` (new)
+- `insights/cost-of-disconnected-systems.html` (new)
+- `insights/when-to-modernize-infrastructure.html` (new)
+- `docs/If_Else_Data_Solutions_Context.md` (this file)
+
+Committed and pushed as 3 commits: `0d0336e` (Services AI copy +
+Fractional CIO differentiation), `294316e` (3 new articles + date
+backfill + em dash cleanup). (`7d19765` from the prior session also
+pushed successfully at the start of this one.)
+
+## Environment note
+Same OneDrive-related `ENOENT` issue as the prior session when using
+`Edit`/`sed` directly on `index.html`/`insights/*.html` — same
+PowerShell + .NET workaround used throughout. One new wrinkle: literal
+em dash and curly-quote characters typed directly into a PowerShell
+command got corrupted in transit (silent no-match on replace, not an
+error). Fixed by building those characters via `[char]0x2014` (em dash)
+and `[char]0x2019` (right single quote) instead of typing them literally
+in the command string. Worth remembering for any future non-ASCII
+find/replace in this repo.
+
+## Current State After This Session
+The site now has 8 Insights articles (all with dates, all with a
+consistent dynamic-year footer), AI messaging woven into Services, no
+em dashes anywhere in site copy, and the duplicate-article and
+title/h1-bug issues are resolved. Remaining open items: the phone number
+decision (parked on Jeff), Insights template consolidation for the
+original 5 minus `reporting-mistakes.html` (KNOWN OPEN ISSUES 3b), and
+the usual SEO/accessibility/performance/analytics passes plus logo
+permissions, all still pending.
