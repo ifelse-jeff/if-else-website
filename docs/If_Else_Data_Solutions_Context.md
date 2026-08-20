@@ -75,6 +75,7 @@ articles added that session):
     ├── cloud-migration-pitfalls.html
     ├── cost-of-disconnected-systems.html
     ├── data-quality-improvement.html
+    ├── fractional-cio-ai-adoption.html
     ├── fractional-cio-growth.html
     ├── fractional-cio.html
     ├── reporting-mistakes.html
@@ -260,19 +261,26 @@ ChatGPT-era migration record (which only listed the first four). Logo
 usage permission should be confirmed for these two if not already done —
 same caution the migration doc flagged for the original four.
 
-## Insights Section — 8 articles currently live (as of 2026-08-20)
+## Insights Section — 9 articles currently live (as of 2026-08-20)
 
-1. "Why Fractional CIOs Are Critical for Growing Businesses" (the "what
-   is a Fractional CIO" explainer)
-2. "What Most Mid-Market Firms Get Wrong About Reporting"
-3. "How a Fractional CIO Accelerates Business Growth" (the "growth
-   outcomes" angle, rewritten 2026-08-20 to stop overlapping with #1)
-4. "Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls"
-5. "Top 5 Ways to Improve Data Quality in Your Organization"
-6. "How Small Businesses Can Use AI Without a Data Team" (new
-   2026-08-20)
-7. "The Real Cost of Disconnected Systems" (new 2026-08-20)
-8. "When Is It Time to Modernize Your Infrastructure?" (new 2026-08-20)
+Display order on the homepage is **newest-first** (changed 2026-08-20,
+was previously just "whatever order they were added in" — see SESSION
+LOG). Listed here newest to oldest, matching the homepage:
+
+1. "How a Fractional CIO Helps You Adopt AI Without the Panic or the
+   Hype" — dated 2026-08-21 (new 2026-08-20, published dated for the
+   next day; Jeff wrote most of the body copy himself)
+2. "When Is It Time to Modernize Your Infrastructure?" — 2026-08-20
+3. "The Real Cost of Disconnected Systems" — 2026-06-15
+4. "How Small Businesses Can Use AI Without a Data Team" — 2026-04-10
+5. "Top 5 Ways to Improve Data Quality in Your Organization" — 2026-02-03
+6. "Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls" — 2025-11-29
+7. "How a Fractional CIO Accelerates Business Growth" — 2025-09-24 (the
+   "growth outcomes" angle, rewritten 2026-08-20 to stop overlapping
+   with #9)
+8. "What Most Mid-Market Firms Get Wrong About Reporting" — 2025-07-20
+9. "Why Fractional CIOs Are Critical for Growing Businesses" — 2025-05-15
+   (the "what is a Fractional CIO" explainer)
 
 ~~Known open issue: #1 and #3 were duplicative.~~ **RESOLVED
 2026-08-20** — #3's `<title>`/`<h1>` also had a leftover copy-paste bug
@@ -322,10 +330,11 @@ bump again. Fixed 2026-08-19 — see SESSION LOG.
    fonts/spacing/color rules, some wrapped in a `.post`/`header` card
    layout and some not, and inconsistent "Back to Insights" link targets
    (`/#insights` root-relative on some, `../index.html#insights` relative
-   on others). All 8 articles now at least share a consistent dynamic-year
-   footer, and the 3 new articles added 2026-08-20
+   on others). All 9 articles now at least share a consistent dynamic-year
+   footer, and the 4 newest articles added 2026-08-20
    (`ai-without-data-team.html`, `cost-of-disconnected-systems.html`,
-   `when-to-modernize-infrastructure.html`) all deliberately reuse the
+   `when-to-modernize-infrastructure.html`,
+   `fractional-cio-ai-adoption.html`) all deliberately reuse the
    `reporting-mistakes.html` template (the one the DO'S list already
    calls the best model), so new content isn't adding to the sprawl. But
    the original 5 are still on their old, inconsistent templates. This is
@@ -511,16 +520,18 @@ padding to be comfortably tappable.
 - Respect for Client Time
 - Honesty in Every Engagement
 
-## Current Insights articles (live, as of 2026-08-20)
+## Current Insights articles (live, as of 2026-08-20, newest-first to
+match homepage display order)
 
-1. Why Fractional CIOs Are Critical for Growing Businesses
-2. What Most Mid-Market Firms Get Wrong About Reporting
-3. How a Fractional CIO Accelerates Business Growth
-4. Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls
+1. How a Fractional CIO Helps You Adopt AI Without the Panic or the Hype
+2. When Is It Time to Modernize Your Infrastructure?
+3. The Real Cost of Disconnected Systems
+4. How Small Businesses Can Use AI Without a Data Team
 5. Top 5 Ways to Improve Data Quality in Your Organization
-6. How Small Businesses Can Use AI Without a Data Team
-7. The Real Cost of Disconnected Systems
-8. When Is It Time to Modernize Your Infrastructure?
+6. Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls
+7. How a Fractional CIO Accelerates Business Growth
+8. What Most Mid-Market Firms Get Wrong About Reporting
+9. Why Fractional CIOs Are Critical for Growing Businesses
 
 ---
 
@@ -800,6 +811,31 @@ instead of after 3 rounds of screenshots.
 - Did not resolve the phone number display (parked, see above).
 - USER WORKING STYLE section is still unconfirmed by Jeff.
 
+**Reordered Insights cards newest-first.** Jeff wanted the homepage
+Insights cards sorted by date, newest on top, not left in whatever order
+they'd been added. Reordered all cards to match; no copy changes. This
+is a manual ordering, not automatic — every future new article needs to
+be inserted in the right position by date, same as the 9th article
+below. Worth automating (sort by a `data-date` attribute via a small
+script) if this becomes a recurring chore; not done yet, just flagging
+the pattern.
+
+**Simplified the hidden-phone contact line.** "Prefer email or a quick
+call?" no longer made sense with the phone hidden (see above), so
+changed it to "Prefer email?" and updated the revert comment to restore
+the original wording alongside the number later.
+
+**Added a 9th Insights article**, Jeff's idea: how a Fractional CIO
+helps a business adopt AI without over-reacting either direction (fear
+that leads to doing nothing, or hype that leads to buying every tool at
+once). Ties the Fractional CIO and AI messaging threads together
+directly. `insights/fractional-cio-ai-adoption.html`, dated 2026-08-21
+(the next day — deliberately published dated for "tomorrow" per Jeff's
+request). Jeff wrote most of the final body copy himself after an
+initial draft; used his text essentially verbatim, just fit into the
+standard template. Added as the new first (newest) card in the Insights
+section.
+
 ## Files Modified
 - `index.html`
 - `insights/fractional-cio.html`
@@ -810,15 +846,22 @@ instead of after 3 rounds of screenshots.
 - `insights/ai-without-data-team.html` (new)
 - `insights/cost-of-disconnected-systems.html` (new)
 - `insights/when-to-modernize-infrastructure.html` (new)
+- `insights/fractional-cio-ai-adoption.html` (new)
 - `docs/If_Else_Data_Solutions_Context.md` (this file)
 
-Committed and pushed as 7 commits: `0d0336e` (Services AI copy +
+Committed and pushed as 11 commits: `0d0336e` (Services AI copy +
 Fractional CIO differentiation), `294316e` (3 new articles + date
 backfill + em dash cleanup), `c99644c` (doc update), `bdff417` (session
 log reordered newest-first), `6370ead` (evenly-spaced article dates),
 `2ed50d9` (Fractional CIO lead service card), `55209f3` (bullet-dot
-alignment fix + this doc audit). (`7d19765` from the prior session also
-pushed successfully at the start of this one.)
+alignment fix attempt + doc audit), `0920a83` (commit-hash note),
+`ac18d18` (bullet fix attempt 2), `e3786c7` (bullet fix attempt 3, lh
+unit), `3613f35` (bullet fix, actual root cause), `f9e2103` (hide phone
+number), `02afcd6` (doc update for hidden phone), `dbb7625` (Insights
+reorder), `f0c3022` (contact line wording). (`7d19765` from the prior
+session also pushed successfully at the start of this one.) [Commit for
+the new 9th article and this doc update still pending as of writing
+this paragraph — see the actual git log for the final hash.]
 
 ## Environment note
 Same OneDrive-related `ENOENT` issue as the prior session when using
