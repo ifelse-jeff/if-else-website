@@ -858,10 +858,9 @@ alignment fix attempt + doc audit), `0920a83` (commit-hash note),
 `ac18d18` (bullet fix attempt 2), `e3786c7` (bullet fix attempt 3, lh
 unit), `3613f35` (bullet fix, actual root cause), `f9e2103` (hide phone
 number), `02afcd6` (doc update for hidden phone), `dbb7625` (Insights
-reorder), `f0c3022` (contact line wording). (`7d19765` from the prior
-session also pushed successfully at the start of this one.) [Commit for
-the new 9th article and this doc update still pending as of writing
-this paragraph — see the actual git log for the final hash.]
+reorder), `f0c3022` (contact line wording), `e5a63c9` (9th article + this
+doc update). (`7d19765` from the prior session also pushed successfully
+at the start of this one.)
 
 ## Environment note
 Same OneDrive-related `ENOENT` issue as the prior session when using
