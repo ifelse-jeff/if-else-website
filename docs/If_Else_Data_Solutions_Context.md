@@ -27,7 +27,7 @@ It contains:
 - Best practices
 - Reference data (IDs, keys, customer names, etc.)
 - Recommended next steps
-- A running session log (append-only, newest at the bottom)
+- A running session log (newest entry at the top)
 
 This doc is the CLAUDE.md-style counterpart to a separate Claude Project
 ("If Else Data Website Design") used for content/strategy conversations.
@@ -540,93 +540,13 @@ List of files.
 Short status update — what works now, what's still open.
 ```
 
-Keep entries append-only (newest at the bottom, like a changelog) so the
-full history stays intact. Update the "Last Updated" date at the top of
-this document, and update KNOWN OPEN ISSUES / RECOMMENDED NEXT STEPS if
-this session closed or opened any.
-
----
-
-# SESSION LOG
-
-(No Claude Code sessions logged yet as of 2026-08-19. This document was
-created in a Cowork/Claude session on that date, based on the consolidated
-ChatGPT migration record and a live fetch of ifelsedata.com. The first
-Claude Code session to make changes to this repo should add the first
-entry below.)
-
----
-
-# SESSION LOG — 2026-08-19
-
-## Summary
-First Claude Code session against this repo. Read this context doc in
-full, reviewed the three NEEDS CONFIRMATION items with Jeff (answers
-still pending — see below), agreed a step-by-step order for KNOWN OPEN
-ISSUES / RECOMMENDED NEXT STEPS starting with lowest-risk items, and
-fixed the footer copyright year across the whole site — including a
-related issue found along the way (4 of 5 Insights articles had no
-footer at all).
-
-## What Was Done
-- **Footer copyright year (KNOWN OPEN ISSUES #3):** Was hardcoded "2025"
-  on the 2 pages that had a footer (`index.html`,
-  `insights/fractional-cio.html`). Updated to 2026, then converted to a
-  dynamic `<span id="copyright-year">` populated by
-  `new Date().getFullYear()` on every page, so it will never need a
-  manual bump again.
-- **Missing footers on 4 Insights articles (found this session, not
-  previously documented):** `cloud-migration-pitfalls.html`,
-  `data-quality-improvement.html`, `fractional-cio-growth.html`, and
-  `reporting-mistakes.html` had no `<footer>` element at all. Added a
-  footer CSS rule (matching the existing style used on
-  `fractional-cio.html`) and the same dynamic-year footer markup/script
-  to all 4, so every page on the site now shows a consistent copyright
-  line.
-- **NOT done / left for later:** Did not unify the rest of the Insights
-  article templates. Each of the 5 was authored independently with
-  different fonts/spacing, some with a card-style wrapper and some
-  without, and inconsistent "Back to Insights" link targets
-  (`/#insights` vs `../index.html#insights`). Logged as new KNOWN OPEN
-  ISSUES item 3b — flagged as a design/content decision for a future
-  session, not corrected automatically, consistent with the "smallest
-  changes first, content/design decisions last" ordering agreed at the
-  start of this session.
-- Reviewed NEEDS CONFIRMATION items with Jeff (repo identity, user
-  working-style inference, phone number). Answers not yet received as of
-  this log entry — still open, see RECOMMENDED NEXT STEPS.
-- Agreed a working order for the remaining open issues (see
-  RECOMMENDED NEXT STEPS, renumbered this session): phone number
-  confirmation and analytics check next, then logo permissions, then
-  SEO/accessibility/performance passes, then the two content/design
-  decisions (duplicate Fractional CIO articles; Insights template
-  consolidation) last.
-
-## Files Modified
-- `index.html`
-- `insights/fractional-cio.html`
-- `insights/cloud-migration-pitfalls.html`
-- `insights/data-quality-improvement.html`
-- `insights/fractional-cio-growth.html`
-- `insights/reporting-mistakes.html`
-- `docs/If_Else_Data_Solutions_Context.md` (this file)
-
-## Environment note
-The Edit tool and Bash's `sed` both failed with `ENOENT` trying to write
-temp files directly inside the site root (`index.html`,
-`insights/*.html`) — worked fine on `docs/` files. Likely OneDrive
-Files-On-Demand/sync interference on that specific folder. Worked around
-it by reading/writing files directly via PowerShell + .NET
-(`System.IO.File]::ReadAllText/WriteAllText` with a no-BOM UTF8
-encoding, verifying single-match-only before each replace). If this
-recurs, that's the fallback — plain `Edit`/`sed` are not reliable in
-`index.html`/`insights/` right now.
-
-## Current State After This Session
-Every page on the site (`index.html` + all 5 Insights articles) now
-shows a self-updating copyright year in a consistent footer. Insights
-template consistency, the duplicate Fractional CIO articles, and the
-three NEEDS CONFIRMATION items remain open for the next session.
+Add the new entry directly below this section, above all earlier entries
+(newest on top, like a reverse-chronological changelog) so the most
+recent session is always the first thing a new session reads. Keep every
+entry intact when adding a new one; don't edit or delete older entries.
+Update the "Last Updated" date at the top of this document, and update
+KNOWN OPEN ISSUES / RECOMMENDED NEXT STEPS if this session closed or
+opened any.
 
 ---
 
@@ -772,3 +692,86 @@ decision (parked on Jeff), Insights template consolidation for the
 original 5 minus `reporting-mistakes.html` (KNOWN OPEN ISSUES 3b), and
 the usual SEO/accessibility/performance/analytics passes plus logo
 permissions, all still pending.
+
+---
+
+# SESSION LOG — 2026-08-19
+
+## Summary
+First Claude Code session against this repo. Read this context doc in
+full, reviewed the three NEEDS CONFIRMATION items with Jeff (answers
+still pending — see below), agreed a step-by-step order for KNOWN OPEN
+ISSUES / RECOMMENDED NEXT STEPS starting with lowest-risk items, and
+fixed the footer copyright year across the whole site — including a
+related issue found along the way (4 of 5 Insights articles had no
+footer at all).
+
+## What Was Done
+- **Footer copyright year (KNOWN OPEN ISSUES #3):** Was hardcoded "2025"
+  on the 2 pages that had a footer (`index.html`,
+  `insights/fractional-cio.html`). Updated to 2026, then converted to a
+  dynamic `<span id="copyright-year">` populated by
+  `new Date().getFullYear()` on every page, so it will never need a
+  manual bump again.
+- **Missing footers on 4 Insights articles (found this session, not
+  previously documented):** `cloud-migration-pitfalls.html`,
+  `data-quality-improvement.html`, `fractional-cio-growth.html`, and
+  `reporting-mistakes.html` had no `<footer>` element at all. Added a
+  footer CSS rule (matching the existing style used on
+  `fractional-cio.html`) and the same dynamic-year footer markup/script
+  to all 4, so every page on the site now shows a consistent copyright
+  line.
+- **NOT done / left for later:** Did not unify the rest of the Insights
+  article templates. Each of the 5 was authored independently with
+  different fonts/spacing, some with a card-style wrapper and some
+  without, and inconsistent "Back to Insights" link targets
+  (`/#insights` vs `../index.html#insights`). Logged as new KNOWN OPEN
+  ISSUES item 3b — flagged as a design/content decision for a future
+  session, not corrected automatically, consistent with the "smallest
+  changes first, content/design decisions last" ordering agreed at the
+  start of this session.
+- Reviewed NEEDS CONFIRMATION items with Jeff (repo identity, user
+  working-style inference, phone number). Answers not yet received as of
+  this log entry — still open, see RECOMMENDED NEXT STEPS.
+- Agreed a working order for the remaining open issues (see
+  RECOMMENDED NEXT STEPS, renumbered this session): phone number
+  confirmation and analytics check next, then logo permissions, then
+  SEO/accessibility/performance passes, then the two content/design
+  decisions (duplicate Fractional CIO articles; Insights template
+  consolidation) last.
+
+## Files Modified
+- `index.html`
+- `insights/fractional-cio.html`
+- `insights/cloud-migration-pitfalls.html`
+- `insights/data-quality-improvement.html`
+- `insights/fractional-cio-growth.html`
+- `insights/reporting-mistakes.html`
+- `docs/If_Else_Data_Solutions_Context.md` (this file)
+
+## Environment note
+The Edit tool and Bash's `sed` both failed with `ENOENT` trying to write
+temp files directly inside the site root (`index.html`,
+`insights/*.html`) — worked fine on `docs/` files. Likely OneDrive
+Files-On-Demand/sync interference on that specific folder. Worked around
+it by reading/writing files directly via PowerShell + .NET
+(`System.IO.File]::ReadAllText/WriteAllText` with a no-BOM UTF8
+encoding, verifying single-match-only before each replace). If this
+recurs, that's the fallback — plain `Edit`/`sed` are not reliable in
+`index.html`/`insights/` right now.
+
+## Current State After This Session
+Every page on the site (`index.html` + all 5 Insights articles) now
+shows a self-updating copyright year in a consistent footer. Insights
+template consistency, the duplicate Fractional CIO articles, and the
+three NEEDS CONFIRMATION items remain open for the next session.
+
+---
+
+# SESSION LOG
+
+(No Claude Code sessions logged yet as of 2026-08-19. This document was
+created in a Cowork/Claude session on that date, based on the consolidated
+ChatGPT migration record and a live fetch of ifelsedata.com. The first
+Claude Code session to make changes to this repo should add the first
+entry below.)
