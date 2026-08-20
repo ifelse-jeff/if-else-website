@@ -322,10 +322,6 @@
       font-weight: bold;
       display: none;
     }
-    .service-example {
-      padding: 12px 0;
-    }
-
     @media (max-width: 768px) {
       .nav-links {
         flex-direction: column;
@@ -361,7 +357,8 @@
       #about .section-box p { margin-bottom: 10px; }
    
       .service-example {
-        padding: 10px 0;
+        --service-example-pad-y: 10px;
+        padding: 10px 0 10px 18px;
         font-size: 0.95em;
       }
     }
@@ -418,10 +415,17 @@
       margin-bottom: 8px;
     }
 
-    /* Paragraph "case studies" with subtle dot markers */
+    /* Paragraph "case studies" with subtle dot markers.
+       --service-example-pad-y is the single source of truth for this
+       box's top/bottom padding. The dot's "top" offset below reads the
+       SAME variable, so the padding and the dot can never drift apart
+       again (this is exactly what went wrong before: padding-top lived
+       in one rule, the dot's offset was a separate hardcoded guess in
+       another, and they quietly disagreed). */
     .service-example {
+      --service-example-pad-y: 12px;
       position: relative;
-      padding-left: 18px;
+      padding: var(--service-example-pad-y) 0 var(--service-example-pad-y) 18px;
       margin: 10px 0;
       line-height: 1.55;
     }
@@ -430,11 +434,12 @@
       content: "";
       position: absolute;
       left: 0;
-      /* Exact vertical center of one line's height, using the "lh" unit
-         (the element's actual computed line-height in px) instead of an
-         approximate "em" guess. This is the precise top-edge offset that
-         centers an 8px dot within one line box, no font-metric guessing. */
-      top: calc((1lh - 8px) / 2);
+      /* Top of this box's padding edge (--service-example-pad-y), plus
+         the exact vertical center of one line's height using the "lh"
+         unit (the element's actual computed line-height in px, not an
+         approximate "em" guess). This is the precise offset that
+         centers an 8px dot against the first line of text. */
+      top: calc(var(--service-example-pad-y) + (1lh - 8px) / 2);
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -442,19 +447,12 @@
       box-shadow: 0 0 0 3px rgba(21,101,192,0.12);
     }
 
-    /* Gentle separation between items */
+    /* Gentle separation between items. (padding-top is already set by
+       the base rule above via --service-example-pad-y; this only adds
+       the visual border + extra breathing room.) */
     .service-example + .service-example {
       border-top: 1px solid #edf2f7;
-      padding-top: 12px;
       margin-top: 12px;
-    }
-
-    /* The dot's "top" is measured from this box's own padding edge, so
-       items with the extra padding-top above (from the separator rule)
-       need that same amount added back, or the dot lands in the gap
-       above the text instead of next to it. */
-    .service-example + .service-example::before {
-      top: calc(12px + (1lh - 8px) / 2);
     }
 
     /* Entry animation */

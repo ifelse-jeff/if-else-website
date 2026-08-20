@@ -745,6 +745,45 @@ browser ever renders this oddly (invalid `lh` support would make the
 whole `top` declaration invalid and fall back to default static
 position).
 
+**Fourth attempt: found the actual root cause.** Jeff confirmed, after a
+hard refresh checked in both VS Code's Simple Browser and a real
+external browser, both the local file and the live site, that first
+bullets in every card were still too high and nothing had visibly
+changed. That ruled out caching. Re-reading the full stylesheet found
+the real bug: a second, separate `.service-example { padding: 12px 0; }`
+rule existed about 100 lines earlier in the file, an orphaned leftover
+unrelated to the "dot marker" rule block added later, which set
+`padding-top: 12px` on every `.service-example` unconditionally,
+including the first bullet in each card. The later
+`.service-example + .service-example` rule's own `padding-top: 12px`
+declaration had actually been a no-op the whole time, since it was
+setting the exact value the earlier rule already set. So every
+dot-alignment attempt so far had wrongly assumed first bullets had
+`padding-top: 0` (no extra offset needed) when they actually had the
+same 12px as every other bullet. That is exactly why "first bullet
+still too high" was the one symptom that never went away across 3 fix
+attempts.
+
+Real fix: deleted the orphaned rule, consolidated all of
+`.service-example`'s padding into the one rule block that already
+documents it, and introduced a CSS custom property
+(`--service-example-pad-y: 12px`, overridden to `10px` inside the
+existing `@media (max-width: 600px)` rule) that both the padding and the
+dot's `top` offset now read from. That was the actual missing piece:
+previously the padding value and the dot's offset were two independent
+hardcoded numbers in different rules that had to be kept in sync by
+hand, and weren't. Now there is exactly one number, referenced by both,
+so they cannot drift apart again, including at the 600px responsive
+breakpoint, which used a different padding value (`10px`) that none of
+the earlier fixes accounted for either.
+
+**Lesson for next time:** when a CSS bug survives multiple seemingly
+correct targeted fixes, stop iterating on the specific rule being edited
+and grep the whole stylesheet for every other rule touching the same
+selector/property first. `grep -n "service-example"` across the whole
+file at the start would have surfaced the orphaned rule immediately
+instead of after 3 rounds of screenshots.
+
 **NOT done / left for later:**
 - Did not touch the em dash in this doc's own prose (out of scope; the
   rule is for site copy, not internal documentation).
