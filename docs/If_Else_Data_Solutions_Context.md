@@ -546,9 +546,11 @@ match homepage display order)
    `display:none`) rather than showing Jeff's personal cell. Once he
    sets up/recovers a Google Voice number: update the two `tel:` links
    in `index.html` (header "Call" button, and the Schedule a
-   Consultation "Prefer email or a quick call?" line) to the new number,
-   then remove the `style="display:none;"` on both to make it visible
-   again.
+   Consultation contact line, currently reads "Prefer email?") to the
+   new number, then remove the `style="display:none;"` on both to make
+   it visible again. Also restore the original "Prefer email or a quick
+   call?" wording on that line (see the HTML comment right above it for
+   the exact revert).
 4. Confirm whether analytics is installed; add if desired.
 5. Confirm logo-usage permission for AdAge and Automotive News.
 6. Do an SEO pass (titles, meta descriptions, Open Graph, sitemap.xml,
@@ -557,10 +559,19 @@ match homepage display order)
    focus states).
 8. Do a performance pass (image optimization, lazy loading).
 9. Decide on and migrate to one consistent Insights article template
-   (see KNOWN OPEN ISSUES item 3b) — the 3 newest articles already use
+   (see KNOWN OPEN ISSUES item 3b) — the 4 newest articles already use
    the target template, so this is now "migrate the remaining 5," not
    "pick a template from scratch."
-10. Confirm the USER WORKING STYLE section (still marked NEEDS
+10. **Automate Insights card ordering (added 2026-08-20).** The homepage
+    Insights cards are sorted newest-first as of 2026-08-20, but it's a
+    manual order in the HTML, not automatic. Every future new article
+    has to be hand-inserted in the right position by date, the same way
+    the 9th article was placed this session. Worth wiring up something
+    that can't drift out of order (e.g., a small script that sorts the
+    `<article>` cards by a `data-date` attribute at load, same spirit as
+    the dynamic copyright year fix) before this becomes a recurring
+    "oops, forgot to reorder" chore.
+11. Confirm the USER WORKING STYLE section (still marked NEEDS
     CONFIRMATION above) and correct anything wrong. (INFRASTRUCTURE's
     repo-identity item is now resolved, see above.)
 
