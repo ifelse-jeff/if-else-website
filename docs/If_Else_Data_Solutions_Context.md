@@ -5,7 +5,7 @@
 Version: 1.0
 Audience: Claude Code (VS Code) sessions, and any successor AI assistant
 Prepared For: Ongoing website content, design, and code work
-Last Updated: 2026-08-20
+Last Updated: 2026-08-21
 
 ---
 
@@ -353,9 +353,15 @@ bump again. Fixed 2026-08-19 — see SESSION LOG.
 6. **Accessibility audit** not yet confirmed as done: heading hierarchy,
    semantic navigation, form labels, keyboard nav, focus states, color
    contrast, alt text, mobile touch targets, CAPTCHA accessibility.
-7. **Analytics** not yet confirmed as installed: Google Analytics, Search
-   Console, Microsoft Clarity, or equivalent. Do not assume any of these
-   are present without checking the actual page source.
+7. ~~Analytics not yet confirmed as installed.~~ **CONFIRMED NOT
+   INSTALLED 2026-08-21** — grepped `index.html` and every file in
+   `insights/` directly: no Google Analytics/gtag, no GTM, no Microsoft
+   Clarity, no Search Console verification meta tag. Only external
+   scripts on the site are reCAPTCHA and a Font Awesome stylesheet. Jeff
+   was offered Clarity/GA4/both and declined for now ("I don't think i
+   need analytics now, i really don't think this site is being heavily
+   used") — a deliberate decision, not an oversight. Revisit if traffic
+   or lead-gen ever becomes a priority to measure.
 8. **Performance audit** not yet confirmed as done: Lighthouse pass,
    image optimization, lazy loading where useful.
 
@@ -553,7 +559,9 @@ match homepage display order)
    it visible again. Also restore the original "Prefer email or a quick
    call?" wording on that line (see the HTML comment right above it for
    the exact revert).
-4. Confirm whether analytics is installed; add if desired.
+4. ~~Confirm whether analytics is installed; add if desired.~~ DONE
+   2026-08-21 (confirmed not installed; Jeff declined to add any for
+   now, see KNOWN OPEN ISSUES #7).
 5. ~~Confirm logo-usage permission for AdAge and Automotive News.~~ DONE
    2026-08-20 (confirmed for all 6 logos).
 6. Do an SEO pass (titles, meta descriptions, Open Graph, sitemap.xml,
@@ -611,6 +619,43 @@ entry intact when adding a new one; don't edit or delete older entries.
 Update the "Last Updated" date at the top of this document, and update
 KNOWN OPEN ISSUES / RECOMMENDED NEXT STEPS if this session closed or
 opened any.
+
+---
+
+# SESSION LOG — 2026-08-21
+
+## Summary
+Short continuation session (same conversation as 2026-08-20, but the
+calendar date rolled over). Worked through the next 2 items on
+RECOMMENDED NEXT STEPS: confirmed logo permissions and checked for
+analytics.
+
+## What Was Done
+- **Logo permissions (KNOWN OPEN ISSUES #2).** Asked Jeff directly
+  rather than guessing. He confirmed he personally knows all 6 client
+  logo customers currently displayed and permission isn't a concern.
+  Marked resolved.
+- **Analytics (KNOWN OPEN ISSUES #7).** Rather than assume, grepped
+  `index.html` and every file in `insights/` for any analytics/tracking
+  script (Google Analytics/gtag, GTM, Microsoft Clarity, Search Console
+  verification meta tag, Facebook Pixel, Hotjar, Segment). Confirmed
+  none installed anywhere; the only external scripts on the site are
+  reCAPTCHA and a Font Awesome stylesheet. Offered Jeff Microsoft
+  Clarity, GA4, both, or skip. He declined for now, citing low traffic
+  ("I really don't think this site is being heavily used") — a
+  deliberate decision, not an oversight, so don't add analytics
+  unprompted in a future session.
+
+## Files Modified
+- `docs/If_Else_Data_Solutions_Context.md` (this file only — no site
+  code changed this session)
+
+## Current State After This Session
+2 more RECOMMENDED NEXT STEPS items closed (logo permissions, analytics
+decision). Remaining open: phone number (parked on Jeff getting a
+Google Voice number), SEO pass, accessibility pass, performance pass,
+Insights template consolidation (KNOWN OPEN ISSUES 3b), automating
+Insights card ordering, and confirming USER WORKING STYLE.
 
 ---
 
