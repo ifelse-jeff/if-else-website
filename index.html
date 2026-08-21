@@ -694,47 +694,47 @@
     <section id="insights" class="page-section insights">
       <div class="section-box">
         <h2>Insights</h2>
-        <article>
+        <article data-date="2026-08-21">
           <h3>How a Fractional CIO Helps You Adopt AI Without the Panic or the Hype</h3>
           <p>Neither freezing up nor buying every tool in sight. Here's the middle path a Fractional CIO brings to AI adoption.</p>
           <a class="read-more" href="insights/fractional-cio-ai-adoption.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2026-08-20">
           <h3>When Is It Time to Modernize Your Infrastructure?</h3>
           <p>Four signs it's worth having the conversation before something forces it.</p>
           <a class="read-more" href="insights/when-to-modernize-infrastructure.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2026-06-15">
           <h3>The Real Cost of Disconnected Systems</h3>
           <p>It rarely shows up as one big failure. It's a slow leak of time, trust, and good decisions.</p>
           <a class="read-more" href="insights/cost-of-disconnected-systems.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2026-04-10">
           <h3>How Small Businesses Can Use AI Without a Data Team</h3>
           <p>You don't need a data science team or a big budget to put AI to work. Here's where to start.</p>
           <a class="read-more" href="insights/ai-without-data-team.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2026-02-03">
           <h3>Top 5 Ways to Improve Data Quality in Your Organization</h3>
           <p>Bad data creates bad decisions. Learn how to identify gaps and build trust in your reporting and analytics.</p>
           <a class="read-more" href="insights/data-quality-improvement.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2025-11-29">
           <h3>Migrating From On-Prem to Cloud: Avoid These 3 Pitfalls</h3>
           <p>Tips from the trenches for a smooth, secure cloud migration.</p>
           <a class="read-more" href="insights/cloud-migration-pitfalls.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2025-09-24">
           <h3>How a Fractional CIO Accelerates Business Growth</h3>
           <p>When full-time executive IT leadership isn't practical, a fractional CIO aligns technology with strategy and momentum.</p>
           <a class="read-more" href="insights/fractional-cio-growth.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2025-07-20">
           <h3>What Most Mid-Market Firms Get Wrong About Reporting</h3>
           <p>Stop relying on outdated spreadsheets and uncover the real insights in your data.</p>
           <a class="read-more" href="insights/reporting-mistakes.html">Read More</a>
         </article>
-        <article>
+        <article data-date="2025-05-15">
           <h3>Why Fractional CIOs Are Critical for Growing Businesses</h3>
           <p>See how small and mid-size companies are unlocking strategic IT leadership, without the overhead.</p>
           <a class="read-more" href="insights/fractional-cio.html">Read More</a>
@@ -869,6 +869,17 @@
   // Handle anchor navigation (e.g., index.html#insights)
   window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // Sort Insights cards newest-first by each <article>'s data-date
+    // attribute (YYYY-MM-DD), so adding a new article never requires
+    // manually re-ordering the HTML - just give it the right date.
+    const insightsList = document.querySelector('#insights .section-box');
+    if (insightsList) {
+      const cards = Array.from(insightsList.querySelectorAll('article[data-date]'));
+      cards.sort((a, b) => b.dataset.date.localeCompare(a.dataset.date));
+      cards.forEach(card => insightsList.appendChild(card));
+    }
+
     const hash = window.location.hash.replace('#', '');
     if (hash) {
       showSection(hash);

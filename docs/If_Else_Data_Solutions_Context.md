@@ -573,15 +573,19 @@ match homepage display order)
    (see KNOWN OPEN ISSUES item 3b) — the 4 newest articles already use
    the target template, so this is now "migrate the remaining 5," not
    "pick a template from scratch."
-10. **Automate Insights card ordering (added 2026-08-20).** The homepage
-    Insights cards are sorted newest-first as of 2026-08-20, but it's a
-    manual order in the HTML, not automatic. Every future new article
-    has to be hand-inserted in the right position by date, the same way
-    the 9th article was placed this session. Worth wiring up something
-    that can't drift out of order (e.g., a small script that sorts the
-    `<article>` cards by a `data-date` attribute at load, same spirit as
-    the dynamic copyright year fix) before this becomes a recurring
-    "oops, forgot to reorder" chore.
+10. ~~Automate Insights card ordering.~~ DONE 2026-08-21. Each
+    `<article>` in `#insights` now carries a `data-date="YYYY-MM-DD"`
+    attribute, and a script in the existing `DOMContentLoaded` handler
+    sorts them newest-first at load
+    (`insightsList.querySelectorAll('article[data-date]')`, sorted
+    descending by `dataset.date`, re-appended in that order). **Adding a
+    new Insights article now only requires giving its `<article>` tag
+    the right `data-date`** — position in the HTML source no longer
+    matters, the script fixes the display order automatically. Keep the
+    per-article `.post-date` text (the human-readable date shown on each
+    article's own page) and this `data-date` attribute in sync manually
+    when adding new articles; they're two separate things that happen to
+    usually carry the same date.
 11. Confirm the USER WORKING STYLE section (still marked NEEDS
     CONFIRMATION above) and correct anything wrong. (INFRASTRUCTURE's
     repo-identity item is now resolved, see above.)
@@ -645,17 +649,25 @@ analytics.
   ("I really don't think this site is being heavily used") — a
   deliberate decision, not an oversight, so don't add analytics
   unprompted in a future session.
+- **Automated Insights card ordering (RECOMMENDED NEXT STEPS #10).**
+  Added a `data-date="YYYY-MM-DD"` attribute to each `<article>` in the
+  `#insights` section, plus a small sort routine in the existing
+  `DOMContentLoaded` handler that reorders them newest-first at load by
+  that attribute. Adding a future article no longer requires manually
+  placing it in the right spot in the HTML, just giving it the correct
+  `data-date`. Same "fix it once so it never needs manual upkeep again"
+  spirit as the dynamic copyright year from 2026-08-19.
 
 ## Files Modified
-- `docs/If_Else_Data_Solutions_Context.md` (this file only — no site
-  code changed this session)
+- `index.html` (data-date attributes + sort script)
+- `docs/If_Else_Data_Solutions_Context.md`
 
 ## Current State After This Session
-2 more RECOMMENDED NEXT STEPS items closed (logo permissions, analytics
-decision). Remaining open: phone number (parked on Jeff getting a
-Google Voice number), SEO pass, accessibility pass, performance pass,
-Insights template consolidation (KNOWN OPEN ISSUES 3b), automating
-Insights card ordering, and confirming USER WORKING STYLE.
+3 more RECOMMENDED NEXT STEPS items closed (logo permissions, analytics
+decision, automated Insights ordering). Remaining open: phone number
+(parked on Jeff getting a Google Voice number), SEO pass, accessibility
+pass, performance pass, Insights template consolidation (KNOWN OPEN
+ISSUES 3b), and confirming USER WORKING STYLE.
 
 ---
 
